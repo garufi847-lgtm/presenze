@@ -2,938 +2,448 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#1a1a2e" />
   <meta name="description" content="Registro presenze tirocinanti" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Presenze" />
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEj0lEQVR4nO3dMXbTWBiGYTmHIgUsYLyIFFOyjyk5szYO5eyDcooswrMAKNJlGuAowU6kSNa9v77n6Ylk+X91r2MBh2FDx+Pd45bHo67T6f6wxXGuehADz1quFcTqP9TQc21rxrDaDzL4bG2NEBb/AINPa0tCuFlyYMNPD5bM4ZvKMfj0au5qMHsFMPz0bO58zgrA8FPBnDmdHIDhp5Kp8zopAMNPRVPm9tUADD+VvTa/LwZg+NmDl+b4YgCGnz25NM+LvgiD6s4G4O7PHp2b698CMPzs2fP5tgUi2pMA3P1JMJ5zKwDRfgXg7k+Sn/NuBSCaAIh2GAbbH3JZAYgmAKIJgGg39v8kswIQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRAtHetT6CCf//5o/UpvNmff/3X+hS6dvA06GWVB/85IZwngDP2NPjPCeEpnwGe2fPwD8P+X99cAiCaAEZS7o4pr3MKARBNAD+k3RXTXu8lAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgB+SHtMOO31XiIAoglgJOWumPI6p+j67wTf3n5ofQq71OK6Pjx82/yYU3T3VyJ7GPqvX963PoWr+fjpe+tT6CqGrgLoYfjH9hRCD4M/1ksE3QTQ2/CPVQ6ht8Ef6yGCLgLoefi5rtYRNP8tkOHP1vr9bxpA6xdPH1rOQbMADD9jreah+RYIWhIA0ZoEYPvDOS3mwgpANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANHetT6BNXz98v5z63NI9fHT979bn8MS5VcAw99W9etfPgBYQgBEEwDRBEA0ARBNAEQTANEEQLTyAVT/JrK66tf/cDzePW590NvbD1sfkiIeHr5terzyKwAsIQCieRqURap/Bii/Ahj+tqpf//IBwBICIJoAiCYAogmAaAIgmgCIVj6A6l/EVFf9+nsYjq54GA42JACieRiORap/Bii/Ahj+tqpf//IBwBICIJoAiCYAogmAaAIgmgCIJgCilQ+g+jeR1VW//p4GpSueBoUNCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCI1iSArR94ooYWc2EFIJoAiNYsANsgxlrNQ9MVQAQMQ9s5aL4FEkG21u9/8wCGof1FoI0e3vcuAhiGPi4G2+nl/e4mgGHo56JwXT29z939Bxnji+Nfj9iPnoZ+rLsAxnq9aOxHV1sg2NrN6XR/aH0S0IoVgGgCIJoAiHYzDMPgcwCJTqf7gxWAaAIg2q8AbINI8nPerQBEexKAVYAE4zm3AhDttwCsAuzZ8/k+uwKIgD06N9e2QES7GIBVgD25NM8vrgAiYA9emuNXt0AioLLX5nfSZwARUNGUuZ38IVgEVDJ1Xmf9FkgEVDBnTmf/GlQE9GzufC4a5uPx7nHJn4e1vPXGvOiLMKsBPVgyh6sNsNWAra1xA179Di4Erm3NncdVtzBiYC3X2m7/DzLvL+tWw5TZAAAAAElFTkSuQmCC" />
   <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <title>Registro Presenze Tirocinanti</title>
+  <title>Registro Presenze</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0f0f1a;
-      --surface: #1a1a2e;
-      --surface2: #22223b;
-      --accent: #e8c547;
-      --accent2: #f4a261;
-      --text: #f0eee8;
-      --text-muted: #8a8a9a;
-      --border: rgba(255,255,255,0.08);
-      --success: #4ecdc4;
-      --danger: #ff6b6b;
-      --radius: 16px;
-      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+      --bg:#0f0f1a; --surface:#1a1a2e; --surface2:#22223b;
+      --accent:#e8c547; --accent2:#f4a261; --text:#f0eee8;
+      --muted:#8a8a9a; --border:rgba(255,255,255,0.08);
+      --ok:#4ecdc4; --err:#ff6b6b; --r:16px;
     }
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+    html,body{height:100%;overflow-x:hidden;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100dvh;}
+    body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;
+      background:radial-gradient(circle,rgba(232,197,71,.06) 0%,transparent 70%);pointer-events:none;}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* HEADER */
+    header{padding:20px 20px 0;background:var(--surface);border-bottom:1px solid var(--border);
+      position:sticky;top:0;z-index:100;}
+    .hrow{max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+    h1{font-family:'DM Serif Display',serif;font-size:1.4rem;letter-spacing:-.02em;}
+    h1 span{color:var(--accent);}
+    .hdate{background:rgba(232,197,71,.12);border:1px solid rgba(232,197,71,.25);color:var(--accent);
+      padding:5px 12px;border-radius:100px;font-size:.75rem;font-weight:500;}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      min-height: 100dvh;
-      overflow-x: hidden;
-    }
+    /* TABS */
+    .tabs{max-width:700px;margin:0 auto;display:flex;}
+    .tab{flex:1;padding:10px 4px;background:none;border:none;border-bottom:2px solid transparent;
+      color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;
+      cursor:pointer;transition:all .2s;letter-spacing:.03em;text-transform:uppercase;}
+    .tab.on{color:var(--accent);border-bottom-color:var(--accent);}
 
-    /* Decorative background */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -200px; right: -200px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(232,197,71,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    /* MAIN */
+    main{max-width:700px;margin:0 auto;padding:20px 16px 90px;}
+    .page{display:none;}.page.on{display:block;}
 
-    /* ── HEADER ── */
-    header {
-      padding: 24px 20px 20px;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      position: sticky; top: 0; z-index: 100;
-      backdrop-filter: blur(20px);
-    }
-    .header-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo-area h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-    .logo-area h1 span { color: var(--accent); }
-    .logo-area p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-    .date-badge {
-      background: rgba(232,197,71,0.12);
-      border: 1px solid rgba(232,197,71,0.25);
-      color: var(--accent);
-      padding: 6px 14px;
-      border-radius: 100px;
-      font-size: 0.78rem;
-      font-weight: 500;
-    }
+    /* CARD */
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:14px;}
+    .ctitle{font-family:'DM Serif Display',serif;font-size:1.05rem;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+    .cicon{width:30px;height:30px;background:rgba(232,197,71,.15);border-radius:8px;
+      display:flex;align-items:center;justify-content:center;font-size:.95rem;}
 
-    /* ── NAV TABS ── */
-    .tabs {
-      max-width: 700px;
-      margin: 20px auto 0;
-      display: flex;
-      gap: 4px;
-      padding: 0 20px;
-    }
-    .tab-btn {
-      flex: 1;
-      padding: 10px;
-      background: transparent;
-      border: none;
-      border-bottom: 2px solid transparent;
-      color: var(--text-muted);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-      letter-spacing: 0.02em;
-    }
-    .tab-btn.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
+    /* FORM */
+    .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .fg{display:flex;flex-direction:column;gap:5px;}
+    .fg.full{grid-column:1/-1;}
+    label{font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
+    input,select,textarea{background:var(--surface2);border:1px solid var(--border);border-radius:10px;
+      color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;padding:11px 13px;
+      transition:border-color .2s,box-shadow .2s;outline:none;width:100%;}
+    input:focus,select:focus,textarea:focus{border-color:rgba(232,197,71,.5);box-shadow:0 0 0 3px rgba(232,197,71,.08);}
+    select option{background:var(--surface2);}
+    textarea{resize:vertical;min-height:85px;line-height:1.5;}
+    .trow{display:flex;gap:8px;align-items:center;}
+    .trow span{color:var(--muted);}
 
-    /* ── MAIN ── */
-    main {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 24px 20px 100px;
-    }
+    /* CHIPS */
+    .chips{display:flex;flex-wrap:wrap;gap:7px;}
+    .chip{padding:6px 13px;border-radius:100px;background:var(--surface2);border:1px solid var(--border);
+      color:var(--muted);font-size:.8rem;font-weight:500;cursor:pointer;transition:all .18s;user-select:none;}
+    .chip.on{background:rgba(232,197,71,.18);border-color:rgba(232,197,71,.5);color:var(--accent);}
 
-    .page { display: none; }
-    .page.active { display: block; }
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;
+      padding:13px 20px;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;
+      font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;}
+    .btn-p{background:var(--accent);color:#1a1a2e;width:100%;margin-top:6px;}
+    .btn-p:hover{background:#f0d060;transform:translateY(-1px);box-shadow:0 4px 20px rgba(232,197,71,.3);}
+    .btn-x{background:rgba(255,107,107,.15);color:var(--err);padding:6px 11px;font-size:.78rem;border-radius:8px;border:none;cursor:pointer;}
+    .btn-x:hover{background:rgba(255,107,107,.28);}
+    .btn-e{background:rgba(78,205,196,.12);color:var(--ok);border:1px solid rgba(78,205,196,.3);flex:1;}
+    .btn-e:hover{background:rgba(78,205,196,.22);}
+    .flex-row{display:flex;gap:10px;margin-bottom:14px;}
 
-    /* ── FORM CARD ── */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      margin-bottom: 16px;
-    }
-    .card-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .card-title .icon {
-      width: 32px; height: 32px;
-      background: rgba(232,197,71,0.15);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-    }
+    /* FILTERS */
+    .filters{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+    .filters select,.filters input{flex:1;min-width:130px;}
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .form-group.full { grid-column: 1 / -1; }
-    label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    input, select, textarea {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      padding: 12px 14px;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-      width: 100%;
-    }
-    input:focus, select:focus, textarea:focus {
-      border-color: rgba(232,197,71,0.5);
-      box-shadow: 0 0 0 3px rgba(232,197,71,0.08);
-    }
-    select option { background: var(--surface2); }
-    textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+    /* ENTRIES */
+    .elist{display:flex;flex-direction:column;gap:11px;}
+    .ecard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+      padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:8px;
+      animation:si .25s ease;}
+    @keyframes si{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .ecard:hover{border-color:rgba(255,255,255,.14);}
+    .ename{font-family:'DM Serif Display',serif;font-size:1rem;margin-bottom:4px;}
+    .emeta{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:7px;}
+    .pill{background:var(--surface2);border-radius:100px;padding:3px 9px;font-size:.72rem;
+      color:var(--muted);display:flex;align-items:center;gap:3px;}
+    .pill.d{color:var(--accent);background:rgba(232,197,71,.1);}
+    .pill.t{color:var(--ok);background:rgba(78,205,196,.1);}
+    .pill.h{color:var(--accent2);background:rgba(244,162,97,.1);}
+    .elaboro{font-size:.83rem;color:var(--muted);line-height:1.5;border-left:2px solid var(--border);padding-left:9px;}
 
-    .time-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    .time-row span {
-      color: var(--text-muted);
-      font-size: 1.2rem;
-    }
+    /* EMPTY */
+    .empty{text-align:center;padding:50px 20px;color:var(--muted);}
+    .empty .ei{font-size:2.5rem;opacity:.35;margin-bottom:10px;}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 24px;
-      border: none;
-      border-radius: 12px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #1a1a2e;
-      width: 100%;
-      margin-top: 8px;
-    }
-    .btn-primary:hover { background: #f0d060; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(232,197,71,0.3); }
-    .btn-primary:active { transform: translateY(0); }
+    /* STATS */
+    .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:18px;}
+    .scard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;}
+    .slabel{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;}
+    .sval{font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--accent);line-height:1;}
+    .ssub{font-size:.76rem;color:var(--muted);margin-top:3px;}
+    .tstat{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+      padding:13px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+    .tsname{font-weight:500;font-size:.88rem;}
+    .tsval{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--accent);}
+    .tsdays{font-size:.72rem;color:var(--muted);text-align:right;}
+    .bar{height:4px;background:var(--surface2);border-radius:4px;margin-top:6px;overflow:hidden;}
+    .barf{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:4px;transition:width .6s ease;}
 
-    .btn-danger {
-      background: rgba(255,107,107,0.15);
-      color: var(--danger);
-      padding: 7px 12px;
-      font-size: 0.8rem;
-      border-radius: 8px;
-    }
-    .btn-danger:hover { background: rgba(255,107,107,0.25); }
+    /* SETTINGS */
+    .sh{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px;}
+    .trow2{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+      padding:11px 15px;display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;}
+    .addrow{display:flex;gap:9px;margin-top:7px;}
+    .addrow input{flex:1;}
+    .btnadd{background:rgba(232,197,71,.18);color:var(--accent);border:1px solid rgba(232,197,71,.3);
+      padding:11px 15px;border-radius:10px;font-size:1.2rem;cursor:pointer;transition:all .2s;}
+    .btnadd:hover{background:rgba(232,197,71,.3);}
 
-    .btn-export {
-      background: rgba(78,205,196,0.15);
-      color: var(--success);
-      border: 1px solid rgba(78,205,196,0.3);
-    }
-    .btn-export:hover { background: rgba(78,205,196,0.25); }
+    /* BOTTOM NAV */
+    nav{position:fixed;bottom:0;left:0;right:0;background:var(--surface);
+      border-top:1px solid var(--border);display:flex;
+      padding:6px 0 max(6px,env(safe-area-inset-bottom));z-index:200;}
+    .ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px;
+      cursor:pointer;transition:all .2s;background:none;border:none;color:var(--muted);}
+    .ni.on{color:var(--accent);}
+    .nicon{font-size:1.25rem;}
+    .nlabel{font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-family:'DM Sans',sans-serif;}
 
-    /* ── TIROCINANTI selector ── */
-    .tirocinante-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .chip {
-      padding: 7px 14px;
-      border-radius: 100px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.82rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.18s;
-    }
-    .chip.selected {
-      background: rgba(232,197,71,0.18);
-      border-color: rgba(232,197,71,0.5);
-      color: var(--accent);
-    }
-    .chip.add-new {
-      border-style: dashed;
-      color: var(--text-muted);
-    }
-    .chip.add-new:hover { color: var(--text); border-color: var(--text-muted); }
+    /* TOAST */
+    #toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(60px);
+      background:var(--surface2);border:1px solid var(--border);color:var(--text);
+      padding:11px 20px;border-radius:100px;font-size:.85rem;font-weight:500;z-index:999;
+      transition:transform .3s ease;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,.4);pointer-events:none;}
+    #toast.on{transform:translateX(-50%) translateY(0);}
+    #toast.ok{border-color:rgba(78,205,196,.4);color:var(--ok);}
 
-    /* ── REGISTRO LIST ── */
-    .filters {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-    .filters select, .filters input {
-      flex: 1;
-      min-width: 140px;
-    }
-
-    .entry-list { display: flex; flex-direction: column; gap: 12px; }
-
-    .entry-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
-      animation: slideIn 0.25s ease;
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .entry-card:hover { border-color: rgba(255,255,255,0.14); }
-
-    .entry-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-    .entry-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-    .pill {
-      background: var(--surface2);
-      border-radius: 100px;
-      padding: 3px 10px;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .pill.date { color: var(--accent); background: rgba(232,197,71,0.1); }
-    .pill.time { color: var(--success); background: rgba(78,205,196,0.1); }
-    .pill.hours { color: var(--accent2); background: rgba(244,162,97,0.1); }
-
-    .entry-lavoro {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      border-left: 2px solid var(--border);
-      padding-left: 10px;
-    }
-
-    .entry-actions {
-      display: flex;
-      align-items: flex-start;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--text-muted);
-    }
-    .empty-state .em-icon { font-size: 3rem; margin-bottom: 12px; opacity: 0.4; }
-    .empty-state p { font-size: 0.9rem; }
-
-    /* ── STATS PAGE ── */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-    .stat-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-    .stat-value {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .stat-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
-
-    .tiro-stat {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    .tiro-stat-name { font-weight: 500; font-size: 0.9rem; }
-    .tiro-stat-hours {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      color: var(--accent);
-    }
-    .tiro-stat-days { font-size: 0.75rem; color: var(--text-muted); text-align: right; }
-
-    .bar-wrap {
-      height: 4px;
-      background: var(--surface2);
-      border-radius: 4px;
-      margin-top: 8px;
-      overflow: hidden;
-    }
-    .bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border-radius: 4px;
-      transition: width 0.6s ease;
-    }
-
-    /* ── IMPOSTAZIONI ── */
-    .settings-section { margin-bottom: 24px; }
-    .settings-section h3 {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-    .tiro-row {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    .add-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 8px;
-    }
-    .add-row input { flex: 1; }
-    .btn-add {
-      background: rgba(232,197,71,0.18);
-      color: var(--accent);
-      border: 1px solid rgba(232,197,71,0.3);
-      padding: 12px 16px;
-      border-radius: 10px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-add:hover { background: rgba(232,197,71,0.3); }
-
-    /* ── TOAST ── */
-    #toast {
-      position: fixed;
-      bottom: 24px; left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 12px 22px;
-      border-radius: 100px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      z-index: 999;
-      transition: transform 0.3s ease;
-      white-space: nowrap;
-      box-shadow: var(--shadow);
-    }
-    #toast.show { transform: translateX(-50%) translateY(0); }
-    #toast.success { border-color: rgba(78,205,196,0.4); color: var(--success); }
-
-    /* ── BOTTOM NAV ── */
-    nav.bottom-nav {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      display: flex;
-      padding: 8px 0 max(8px, env(safe-area-inset-bottom));
-      z-index: 200;
-    }
-    .nav-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      padding: 8px;
-      cursor: pointer;
-      transition: all 0.2s;
-      background: none;
-      border: none;
-      color: var(--text-muted);
-    }
-    .nav-item.active { color: var(--accent); }
-    .nav-icon { font-size: 1.3rem; }
-    .nav-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; }
-
-    @media (max-width: 420px) {
-      .form-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: 1fr; }
+    @media(max-width:420px){.fgrid,.sgrid{grid-template-columns:1fr;}}
+    @media print{
+      header,nav,.filters,.btn-e,.btn-x,#toast{display:none!important;}
+      body{background:white;color:black;}
+      .ecard{border:1px solid #ccc;break-inside:avoid;}
+      .elaboro{color:#333;}.pill{background:#eee;color:#333;}
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="logo-area">
+  <div class="hrow">
+    <div>
       <h1>Registro <span>Presenze</span></h1>
-      <p>Tirocinanti — Negozio</p>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:2px;">Tirocinanti — Negozio</p>
     </div>
-    <div class="date-badge" id="headerDate"></div>
+    <div class="hdate" id="hdate"></div>
+  </div>
+  <div class="tabs">
+    <button class="tab on" data-page="nuovo">➕ Nuovo</button>
+    <button class="tab" data-page="registro">📄 Registro</button>
+    <button class="tab" data-page="stats">📊 Stats</button>
+    <button class="tab" data-page="imp">⚙️ Impost.</button>
   </div>
 </header>
 
 <main>
-  <!-- ── PAGE: NUOVA PRESENZA ── -->
-  <div class="page active" id="page-nuovo">
+  <!-- NUOVO -->
+  <div class="page on" id="pg-nuovo">
     <div class="card">
-      <div class="card-title">
-        <div class="icon">📋</div>
-        Registra presenza
+      <div class="ctitle"><div class="cicon">📋</div>Registra presenza</div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block;margin-bottom:7px;">Tirocinante</label>
+        <div class="chips" id="chips"></div>
       </div>
-
-      <div style="margin-bottom:16px;">
-        <label style="display:block;margin-bottom:8px;">Tirocinante</label>
-        <div class="tirocinante-chips" id="tiroChips"></div>
-      </div>
-
-      <div class="form-grid">
-        <div class="form-group">
-          <label>Data</label>
-          <input type="date" id="inputData" />
-        </div>
-        <div class="form-group">
-          <label>Ore (facoltativo)</label>
-          <div class="time-row">
-            <input type="time" id="inputOraInizio" placeholder="Inizio" />
+      <div class="fgrid">
+        <div class="fg"><label>Data</label><input type="date" id="iData" /></div>
+        <div class="fg">
+          <label>Orario (facoltativo)</label>
+          <div class="trow">
+            <input type="time" id="iIn" style="flex:1;" />
             <span>→</span>
-            <input type="time" id="inputOraFine" placeholder="Fine" />
+            <input type="time" id="iOut" style="flex:1;" />
           </div>
         </div>
-        <div class="form-group full">
-          <label>Lavoro svolto</label>
-          <textarea id="inputLavoro" placeholder="Descrivi le attività svolte durante il tirocinio..."></textarea>
-        </div>
+        <div class="fg full"><label>Lavoro svolto</label>
+          <textarea id="iLav" placeholder="Descrivi le attività svolte..."></textarea></div>
       </div>
-
-      <button class="btn btn-primary" onclick="salvaPresenza()">
-        ✓ Salva presenza
-      </button>
+      <button class="btn btn-p" onclick="salva()">✓ Salva presenza</button>
     </div>
   </div>
 
-  <!-- ── PAGE: REGISTRO ── -->
-  <div class="page" id="page-registro">
+  <!-- REGISTRO -->
+  <div class="page" id="pg-registro">
     <div class="filters">
-      <select id="filterTiro" onchange="renderRegistro()">
-        <option value="">Tutti i tirocinanti</option>
-      </select>
-      <input type="month" id="filterMese" onchange="renderRegistro()" />
+      <select id="fTiro" onchange="renderReg()"><option value="">Tutti</option></select>
+      <input type="month" id="fMese" onchange="renderReg()" />
     </div>
-    <div style="display:flex;gap:10px;margin-bottom:16px;">
-      <button class="btn btn-export" onclick="esportaCSV()" style="flex:1;">
-        📥 Esporta CSV
-      </button>
-      <button class="btn btn-export" onclick="stampa()" style="flex:1;">
-        🖨️ Stampa
-      </button>
+    <div class="flex-row">
+      <button class="btn btn-e" onclick="expCSV()">📥 CSV</button>
+      <button class="btn btn-e" onclick="window.print()">🖨️ Stampa</button>
     </div>
-    <div class="entry-list" id="entryList"></div>
+    <div class="elist" id="elist"></div>
   </div>
 
-  <!-- ── PAGE: STATISTICHE ── -->
-  <div class="page" id="page-stats">
-    <div class="stats-grid" id="statsGrid"></div>
+  <!-- STATS -->
+  <div class="page" id="pg-stats">
+    <div class="sgrid" id="sgrid"></div>
     <div class="card">
-      <div class="card-title"><div class="icon">👤</div> Per tirocinante</div>
-      <div id="tiroStatsList"></div>
+      <div class="ctitle"><div class="cicon">👤</div>Per tirocinante</div>
+      <div id="tlist"></div>
     </div>
   </div>
 
-  <!-- ── PAGE: IMPOSTAZIONI ── -->
-  <div class="page" id="page-settings">
+  <!-- IMPOSTAZIONI -->
+  <div class="page" id="pg-imp">
     <div class="card">
-      <div class="settings-section">
-        <h3>Tirocinanti</h3>
-        <div id="tiroListSettings"></div>
-        <div class="add-row">
-          <input type="text" id="newTiroName" placeholder="Nome tirocinante..." maxlength="40" />
-          <button class="btn-add" onclick="aggiungiTirocinante()">+</button>
-        </div>
+      <div class="sh">Tirocinanti</div>
+      <div id="tsettings"></div>
+      <div class="addrow">
+        <input type="text" id="newName" placeholder="Nome cognome..." maxlength="40"
+          onkeydown="if(event.key==='Enter')addTiro()" />
+        <button class="btnadd" onclick="addTiro()">+</button>
       </div>
     </div>
     <div class="card">
-      <div class="settings-section">
-        <h3>Dati</h3>
-        <button class="btn" style="background:var(--surface2);color:var(--text);width:100%;margin-bottom:10px;" onclick="esportaJSON()">
-          💾 Backup JSON
-        </button>
-        <button class="btn" style="background:rgba(255,107,107,0.12);color:var(--danger);width:100%;border:1px solid rgba(255,107,107,0.2);" onclick="resetDati()">
-          🗑️ Cancella tutti i dati
-        </button>
-      </div>
+      <div class="sh">Dati</div>
+      <button class="btn" style="background:var(--surface2);color:var(--text);width:100%;margin-bottom:10px;" onclick="expJSON()">💾 Backup JSON</button>
+      <button class="btn" style="background:rgba(255,107,107,.12);color:var(--err);width:100%;border:1px solid rgba(255,107,107,.2);" onclick="resetAll()">🗑️ Cancella tutti i dati</button>
     </div>
-    <p style="text-align:center;color:var(--text-muted);font-size:0.75rem;margin-top:16px;">
-      Dati salvati localmente sul dispositivo
-    </p>
+    <p style="text-align:center;color:var(--muted);font-size:.72rem;margin-top:14px;">Dati salvati localmente sul dispositivo</p>
   </div>
 </main>
 
-<!-- Bottom Nav -->
-<nav class="bottom-nav">
-  <button class="nav-item active" onclick="switchPage('nuovo', this)">
-    <span class="nav-icon">➕</span>
-    <span class="nav-label">Nuovo</span>
-  </button>
-  <button class="nav-item" onclick="switchPage('registro', this)">
-    <span class="nav-icon">📄</span>
-    <span class="nav-label">Registro</span>
-  </button>
-  <button class="nav-item" onclick="switchPage('stats', this)">
-    <span class="nav-icon">📊</span>
-    <span class="nav-label">Statistiche</span>
-  </button>
-  <button class="nav-item" onclick="switchPage('settings', this)">
-    <span class="nav-icon">⚙️</span>
-    <span class="nav-label">Imposta</span>
-  </button>
+<nav>
+  <button class="ni on" data-page="nuovo"><span class="nicon">➕</span><span class="nlabel">Nuovo</span></button>
+  <button class="ni" data-page="registro"><span class="nicon">📄</span><span class="nlabel">Registro</span></button>
+  <button class="ni" data-page="stats"><span class="nicon">📊</span><span class="nlabel">Stats</span></button>
+  <button class="ni" data-page="imp"><span class="nicon">⚙️</span><span class="nlabel">Impost.</span></button>
 </nav>
 
 <div id="toast"></div>
 
 <script>
 // ── STATE ──
-let state = {
-  tirocinanti: [],
-  presenze: []
-};
-
-function loadState() {
-  try {
-    const s = localStorage.getItem('presenze_state');
-    if (s) state = JSON.parse(s);
-  } catch(e) {}
-}
-function saveState() {
-  localStorage.setItem('presenze_state', JSON.stringify(state));
-}
+let S = { tirocinanti:[], presenze:[] };
+try{ const r=localStorage.getItem('pres_v2'); if(r) S=JSON.parse(r); }catch(e){}
+function save(){ try{localStorage.setItem('pres_v2',JSON.stringify(S));}catch(e){} }
 
 // ── INIT ──
-loadState();
-setDefaults();
-renderAll();
+document.getElementById('hdate').textContent = fmtDate(today());
+document.getElementById('iData').value = today();
+if(!S.tirocinanti.length) S.tirocinanti=['Mario Rossi','Giulia Bianchi'], save();
+renderChips(); renderFTiro();
 
-function setDefaults() {
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('inputData').value = today;
-  document.getElementById('headerDate').textContent = formatDate(today);
+// NAV
+document.querySelectorAll('[data-page]').forEach(b => b.addEventListener('click', () => {
+  const p = b.dataset.page;
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('[data-page]').forEach(x=>x.classList.remove('on'));
+  document.getElementById('pg-'+p).classList.add('on');
+  document.querySelectorAll('[data-page="'+p+'"]').forEach(x=>x.classList.add('on'));
+  if(p==='registro'){ renderFTiro(); renderReg(); }
+  if(p==='stats') renderStats();
+  if(p==='imp') renderSettings();
+}));
 
-  // Default tirocinanti demo
-  if (state.tirocinanti.length === 0) {
-    state.tirocinanti = ['Mario Rossi', 'Giulia Bianchi'];
-    saveState();
-  }
-}
-
-// ── NAVIGATION ──
-function switchPage(name, btn) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
-  btn.classList.add('active');
-  if (name === 'registro') { renderRegistro(); renderFilterTiro(); }
-  if (name === 'stats') renderStats();
-  if (name === 'settings') renderSettings();
-}
-
-// ── CHIPS TIROCINANTI ──
-let selectedTiro = null;
-function renderChips() {
-  const container = document.getElementById('tiroChips');
-  container.innerHTML = '';
-  state.tirocinanti.forEach(name => {
-    const chip = document.createElement('div');
-    chip.className = 'chip' + (selectedTiro === name ? ' selected' : '');
-    chip.textContent = name;
-    chip.onclick = () => { selectedTiro = selectedTiro === name ? null : name; renderChips(); };
-    container.appendChild(chip);
+// ── CHIPS ──
+let selTiro=null;
+function renderChips(){
+  const c=document.getElementById('chips'); c.innerHTML='';
+  S.tirocinanti.forEach(n=>{
+    const d=document.createElement('div');
+    d.className='chip'+(selTiro===n?' on':'');
+    d.textContent=n;
+    d.onclick=()=>{ selTiro=selTiro===n?null:n; renderChips(); };
+    c.appendChild(d);
   });
 }
 
-// ── SALVA PRESENZA ──
-function salvaPresenza() {
-  if (!selectedTiro) { showToast('Seleziona un tirocinante'); return; }
-  const data = document.getElementById('inputData').value;
-  if (!data) { showToast('Inserisci la data'); return; }
-  const lavoro = document.getElementById('inputLavoro').value.trim();
-  if (!lavoro) { showToast('Descrivi il lavoro svolto'); return; }
-
-  const oraInizio = document.getElementById('inputOraInizio').value;
-  const oraFine = document.getElementById('inputOraFine').value;
-  let ore = null;
-  if (oraInizio && oraFine) {
-    const diff = calcOre(oraInizio, oraFine);
-    if (diff > 0) ore = diff;
-  }
-
-  const presenza = {
-    id: Date.now(),
-    tirocinante: selectedTiro,
-    data,
-    oraInizio: oraInizio || null,
-    oraFine: oraFine || null,
-    ore,
-    lavoro
-  };
-
-  state.presenze.unshift(presenza);
-  saveState();
-
-  document.getElementById('inputLavoro').value = '';
-  document.getElementById('inputOraInizio').value = '';
-  document.getElementById('inputOraFine').value = '';
-
-  showToast('✓ Presenza salvata', true);
+// ── SALVA ──
+function salva(){
+  if(!selTiro) return toast('Seleziona un tirocinante');
+  const data=document.getElementById('iData').value;
+  if(!data) return toast('Inserisci la data');
+  const lav=document.getElementById('iLav').value.trim();
+  if(!lav) return toast('Descrivi il lavoro svolto');
+  const i=document.getElementById('iIn').value;
+  const o=document.getElementById('iOut').value;
+  let ore=null;
+  if(i&&o){ const d=((+o.split(':')[0]*60+ +o.split(':')[1])-(+i.split(':')[0]*60+ +i.split(':')[1]))/60; if(d>0) ore=d; }
+  S.presenze.unshift({id:Date.now(),tirocinante:selTiro,data,oraI:i||null,oraO:o||null,ore,lavoro:lav});
+  save();
+  document.getElementById('iLav').value='';
+  document.getElementById('iIn').value='';
+  document.getElementById('iOut').value='';
+  toast('✓ Presenza salvata',true);
 }
 
-function calcOre(inizio, fine) {
-  const [h1, m1] = inizio.split(':').map(Number);
-  const [h2, m2] = fine.split(':').map(Number);
-  return ((h2 * 60 + m2) - (h1 * 60 + m1)) / 60;
+// ── REGISTRO ──
+function renderFTiro(){
+  const s=document.getElementById('fTiro'); const v=s.value;
+  s.innerHTML='<option value="">Tutti i tirocinanti</option>';
+  S.tirocinanti.forEach(t=>s.innerHTML+=`<option ${v===t?'selected':''}>${t}</option>`);
 }
-
-// ── RENDER REGISTRO ──
-function renderFilterTiro() {
-  const sel = document.getElementById('filterTiro');
-  const cur = sel.value;
-  sel.innerHTML = '<option value="">Tutti i tirocinanti</option>';
-  state.tirocinanti.forEach(t => {
-    sel.innerHTML += `<option value="${t}" ${cur===t?'selected':''}>${t}</option>`;
-  });
-}
-
-function renderRegistro() {
-  const tiroFilter = document.getElementById('filterTiro')?.value || '';
-  const meseFilter = document.getElementById('filterMese')?.value || '';
-  const list = document.getElementById('entryList');
-
-  let filtered = state.presenze;
-  if (tiroFilter) filtered = filtered.filter(p => p.tirocinante === tiroFilter);
-  if (meseFilter) filtered = filtered.filter(p => p.data.startsWith(meseFilter));
-
-  if (!filtered.length) {
-    list.innerHTML = `<div class="empty-state">
-      <div class="em-icon">📭</div>
-      <p>Nessuna presenza trovata</p>
-    </div>`;
-    return;
-  }
-
-  list.innerHTML = filtered.map(p => `
-    <div class="entry-card" id="entry-${p.id}">
+function renderReg(){
+  const ft=document.getElementById('fTiro')?.value||'';
+  const fm=document.getElementById('fMese')?.value||'';
+  let pp=S.presenze;
+  if(ft) pp=pp.filter(p=>p.tirocinante===ft);
+  if(fm) pp=pp.filter(p=>p.data.startsWith(fm));
+  const el=document.getElementById('elist');
+  if(!pp.length){ el.innerHTML='<div class="empty"><div class="ei">📭</div><p>Nessuna presenza trovata</p></div>'; return; }
+  el.innerHTML=pp.map(p=>`
+    <div class="ecard">
       <div>
-        <div class="entry-name">${p.tirocinante}</div>
-        <div class="entry-meta">
-          <span class="pill date">📅 ${formatDate(p.data)}</span>
-          ${p.oraInizio ? `<span class="pill time">🕐 ${p.oraInizio}${p.oraFine ? ' – '+p.oraFine : ''}</span>` : ''}
-          ${p.ore ? `<span class="pill hours">⏱ ${p.ore.toFixed(1)}h</span>` : ''}
+        <div class="ename">${p.tirocinante}</div>
+        <div class="emeta">
+          <span class="pill d">📅 ${fmtDate(p.data)}</span>
+          ${p.oraI?`<span class="pill t">🕐 ${p.oraI}${p.oraO?' – '+p.oraO:''}</span>`:''}
+          ${p.ore?`<span class="pill h">⏱ ${p.ore.toFixed(1)}h</span>`:''}
         </div>
-        <div class="entry-lavoro">${p.lavoro}</div>
+        <div class="elaboro">${p.lavoro}</div>
       </div>
-      <div class="entry-actions">
-        <button class="btn btn-danger" onclick="eliminaPresenza(${p.id})">✕</button>
-      </div>
-    </div>
-  `).join('');
+      <div><button class="btn-x" onclick="del(${p.id})">✕</button></div>
+    </div>`).join('');
 }
-
-function eliminaPresenza(id) {
-  if (!confirm('Eliminare questa presenza?')) return;
-  state.presenze = state.presenze.filter(p => p.id !== id);
-  saveState();
-  renderRegistro();
-  showToast('Presenza eliminata');
+function del(id){
+  if(!confirm('Eliminare questa presenza?')) return;
+  S.presenze=S.presenze.filter(p=>p.id!==id); save(); renderReg();
+  toast('Presenza eliminata');
 }
 
 // ── STATS ──
-function renderStats() {
-  const grid = document.getElementById('statsGrid');
-  const total = state.presenze.length;
-  const totalOre = state.presenze.reduce((s, p) => s + (p.ore || 0), 0);
-  const tiroSet = new Set(state.presenze.map(p => p.tirocinante));
-  const thisMonth = new Date().toISOString().slice(0,7);
-  const monthCount = state.presenze.filter(p => p.data.startsWith(thisMonth)).length;
-
-  grid.innerHTML = `
-    <div class="stat-card">
-      <div class="stat-label">Presenze totali</div>
-      <div class="stat-value">${total}</div>
-      <div class="stat-sub">registrazioni</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Ore totali</div>
-      <div class="stat-value">${totalOre.toFixed(0)}</div>
-      <div class="stat-sub">ore di tirocinio</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Questo mese</div>
-      <div class="stat-value">${monthCount}</div>
-      <div class="stat-sub">presenze</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Tirocinanti</div>
-      <div class="stat-value">${tiroSet.size}</div>
-      <div class="stat-sub">attivi</div>
-    </div>
-  `;
-
-  const maxOre = Math.max(...state.tirocinanti.map(t =>
-    state.presenze.filter(p => p.tirocinante === t).reduce((s, p) => s + (p.ore || 0), 0)
-  ), 1);
-
-  document.getElementById('tiroStatsList').innerHTML = state.tirocinanti.map(t => {
-    const pp = state.presenze.filter(p => p.tirocinante === t);
-    const ore = pp.reduce((s, p) => s + (p.ore || 0), 0);
-    const days = pp.length;
-    const pct = (ore / maxOre) * 100;
-    return `
-      <div class="tiro-stat">
-        <div>
-          <div class="tiro-stat-name">${t}</div>
-          <div class="bar-wrap"><div class="bar-fill" style="width:${pct}%"></div></div>
-        </div>
-        <div>
-          <div class="tiro-stat-hours">${ore.toFixed(1)}h</div>
-          <div class="tiro-stat-days">${days} giorni</div>
-        </div>
-      </div>`;
+function renderStats(){
+  const tot=S.presenze.length;
+  const ore=S.presenze.reduce((s,p)=>s+(p.ore||0),0);
+  const mese=new Date().toISOString().slice(0,7);
+  const mes=S.presenze.filter(p=>p.data.startsWith(mese)).length;
+  const ntiro=new Set(S.presenze.map(p=>p.tirocinante)).size;
+  document.getElementById('sgrid').innerHTML=`
+    <div class="scard"><div class="slabel">Presenze totali</div><div class="sval">${tot}</div><div class="ssub">registrazioni</div></div>
+    <div class="scard"><div class="slabel">Ore totali</div><div class="sval">${ore.toFixed(0)}</div><div class="ssub">ore tirocinio</div></div>
+    <div class="scard"><div class="slabel">Questo mese</div><div class="sval">${mes}</div><div class="ssub">presenze</div></div>
+    <div class="scard"><div class="slabel">Tirocinanti</div><div class="sval">${ntiro}</div><div class="ssub">attivi</div></div>`;
+  const maxOre=Math.max(...S.tirocinanti.map(t=>S.presenze.filter(p=>p.tirocinante===t).reduce((s,p)=>s+(p.ore||0),0)),1);
+  document.getElementById('tlist').innerHTML=S.tirocinanti.map(t=>{
+    const pp=S.presenze.filter(p=>p.tirocinante===t);
+    const o=pp.reduce((s,p)=>s+(p.ore||0),0);
+    return `<div class="tstat">
+      <div style="flex:1">
+        <div class="tsname">${t}</div>
+        <div class="bar"><div class="barf" style="width:${(o/maxOre*100).toFixed(0)}%"></div></div>
+      </div>
+      <div style="margin-left:16px;text-align:right">
+        <div class="tsval">${o.toFixed(1)}h</div>
+        <div class="tsdays">${pp.length} giorni</div>
+      </div></div>`;
   }).join('');
 }
 
 // ── SETTINGS ──
-function renderSettings() {
-  document.getElementById('tiroListSettings').innerHTML = state.tirocinanti.map((t, i) => `
-    <div class="tiro-row">
-      <span>${t}</span>
-      <button class="btn btn-danger" onclick="rimuoviTirocinante(${i})">✕ Rimuovi</button>
-    </div>
-  `).join('');
+function renderSettings(){
+  document.getElementById('tsettings').innerHTML=S.tirocinanti.map((t,i)=>`
+    <div class="trow2"><span>${t}</span>
+    <button class="btn-x" onclick="rmTiro(${i})">✕ Rimuovi</button></div>`).join('');
 }
-
-function aggiungiTirocinante() {
-  const input = document.getElementById('newTiroName');
-  const nome = input.value.trim();
-  if (!nome) return;
-  if (state.tirocinanti.includes(nome)) { showToast('Tirocinante già presente'); return; }
-  state.tirocinanti.push(nome);
-  saveState();
-  input.value = '';
-  renderSettings();
-  renderAll();
-  showToast('✓ Tirocinante aggiunto', true);
+function addTiro(){
+  const n=document.getElementById('newName').value.trim();
+  if(!n) return;
+  if(S.tirocinanti.includes(n)) return toast('Già presente');
+  S.tirocinanti.push(n); save();
+  document.getElementById('newName').value='';
+  renderSettings(); renderChips(); renderFTiro();
+  toast('✓ Aggiunto',true);
 }
-
-function rimuoviTirocinante(i) {
-  const nome = state.tirocinanti[i];
-  if (!confirm(`Rimuovere "${nome}"? Le presenze non verranno eliminate.`)) return;
-  state.tirocinanti.splice(i, 1);
-  saveState();
-  renderSettings();
-  renderAll();
+function rmTiro(i){
+  if(!confirm('Rimuovere "'+S.tirocinanti[i]+'"?')) return;
+  S.tirocinanti.splice(i,1); save(); renderSettings(); renderChips(); renderFTiro();
 }
 
 // ── EXPORT ──
-function esportaCSV() {
-  const rows = [['Tirocinante','Data','Ora Inizio','Ora Fine','Ore','Lavoro svolto']];
-  state.presenze.forEach(p => {
-    rows.push([p.tirocinante, p.data, p.oraInizio||'', p.oraFine||'', p.ore||'', `"${p.lavoro.replace(/"/g,'""')}"`]);
-  });
-  const csv = rows.map(r => r.join(';')).join('\n');
-  const blob = new Blob(['\uFEFF'+csv], { type: 'text/csv;charset=utf-8;' });
-  download(blob, `presenze_${new Date().toISOString().slice(0,10)}.csv`);
-  showToast('✓ CSV esportato', true);
+function expCSV(){
+  const rows=[['Tirocinante','Data','Ora Inizio','Ora Fine','Ore','Lavoro svolto']];
+  S.presenze.forEach(p=>rows.push([p.tirocinante,p.data,p.oraI||'',p.oraO||'',p.ore||'','"'+p.lavoro.replace(/"/g,'""')+'"']));
+  dl(new Blob(['\uFEFF'+rows.map(r=>r.join(';')).join('\n')],{type:'text/csv;charset=utf-8;'}),`presenze_${today()}.csv`);
+  toast('✓ CSV scaricato',true);
 }
-
-function esportaJSON() {
-  const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
-  download(blob, `backup_presenze_${new Date().toISOString().slice(0,10)}.json`);
-  showToast('✓ Backup scaricato', true);
+function expJSON(){
+  dl(new Blob([JSON.stringify(S,null,2)],{type:'application/json'}),`backup_${today()}.json`);
+  toast('✓ Backup scaricato',true);
 }
-
-function download(blob, filename) {
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(a.href);
+function dl(blob,name){
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; a.click(); URL.revokeObjectURL(a.href);
 }
-
-function stampa() {
-  window.print();
-}
-
-function resetDati() {
-  if (!confirm('Cancellare TUTTI i dati? Questa azione è irreversibile.')) return;
-  state = { tirocinanti: [], presenze: [] };
-  saveState();
-  setDefaults();
-  renderAll();
-  showToast('Dati cancellati');
+function resetAll(){
+  if(!confirm('Cancellare TUTTI i dati? Irreversibile.')) return;
+  S={tirocinanti:[],presenze:[]}; save();
+  S.tirocinanti=['Mario Rossi','Giulia Bianchi']; save();
+  selTiro=null; renderChips(); renderFTiro();
+  toast('Dati cancellati');
 }
 
 // ── HELPERS ──
-function renderAll() {
-  renderChips();
-  renderFilterTiro();
+function today(){ return new Date().toISOString().split('T')[0]; }
+function fmtDate(d){
+  if(!d) return '';
+  const [y,m,day]=d.split('-');
+  return parseInt(day)+' '+['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'][parseInt(m)-1]+' '+y;
+}
+let tt;
+function toast(msg,ok=false){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.className='on'+(ok?' ok':'');
+  clearTimeout(tt); tt=setTimeout(()=>el.className='',2600);
 }
 
-function formatDate(d) {
-  if (!d) return '';
-  const [y, m, day] = d.split('-');
-  const months = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
-  return `${parseInt(day)} ${months[parseInt(m)-1]} ${y}`;
-}
-
-let toastTimer;
-function showToast(msg, success = false) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'show' + (success ? ' success' : '');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.className = '', 2500);
-}
-
-// ── SERVICE WORKER registration ──
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
-  });
+// ── SERVICE WORKER (inline blob) ──
+if('serviceWorker' in navigator){
+  const swCode=`
+const C='pres-v2';
+const A=['./'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll(A)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>caches.match('./')))));
+`;
+  const swBlob=new Blob([swCode],{type:'application/javascript'});
+  const swURL=URL.createObjectURL(swBlob);
+  navigator.serviceWorker.register(swURL,{scope:'./'  }).catch(()=>
+    // fallback: try external sw.js
+    navigator.serviceWorker.register('./sw.js').catch(()=>{})
+  );
 }
 </script>
-
-<style>
-@media print {
-  header, nav.bottom-nav, .filters, .btn-export, .btn-danger, #toast { display: none !important; }
-  body { background: white; color: black; }
-  .entry-card { border: 1px solid #ccc; break-inside: avoid; }
-  .entry-lavoro { color: #333; }
-  .pill { background: #eee; color: #333; }
-}
-</style>
 </body>
 </html>
