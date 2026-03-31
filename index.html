@@ -1,613 +1,819 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#1a1a2e" />
-  <meta name="description" content="Registro presenze tirocinanti" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Presenze" />
-  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEj0lEQVR4nO3dMXbTWBiGYTmHIgUsYLyIFFOyjyk5szYO5eyDcooswrMAKNJlGuAowU6kSNa9v77n6Ylk+X91r2MBh2FDx+Pd45bHo67T6f6wxXGuehADz1quFcTqP9TQc21rxrDaDzL4bG2NEBb/AINPa0tCuFlyYMNPD5bM4ZvKMfj0au5qMHsFMPz0bO58zgrA8FPBnDmdHIDhp5Kp8zopAMNPRVPm9tUADD+VvTa/LwZg+NmDl+b4YgCGnz25NM+LvgiD6s4G4O7PHp2b698CMPzs2fP5tgUi2pMA3P1JMJ5zKwDRfgXg7k+Sn/NuBSCaAIh2GAbbH3JZAYgmAKIJgGg39v8kswIQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRAtHetT6CCf//5o/UpvNmff/3X+hS6dvA06GWVB/85IZwngDP2NPjPCeEpnwGe2fPwD8P+X99cAiCaAEZS7o4pr3MKARBNAD+k3RXTXu8lAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgB+SHtMOO31XiIAoglgJOWumPI6p+j67wTf3n5ofQq71OK6Pjx82/yYU3T3VyJ7GPqvX963PoWr+fjpe+tT6CqGrgLoYfjH9hRCD4M/1ksE3QTQ2/CPVQ6ht8Ef6yGCLgLoefi5rtYRNP8tkOHP1vr9bxpA6xdPH1rOQbMADD9jreah+RYIWhIA0ZoEYPvDOS3mwgpANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANHetT6BNXz98v5z63NI9fHT979bn8MS5VcAw99W9etfPgBYQgBEEwDRBEA0ARBNAEQTANEEQLTyAVT/JrK66tf/cDzePW590NvbD1sfkiIeHr5terzyKwAsIQCieRqURap/Bii/Ahj+tqpf//IBwBICIJoAiCYAogmAaAIgmgCIVj6A6l/EVFf9+nsYjq54GA42JACieRiORap/Bii/Ahj+tqpf//IBwBICIJoAiCYAogmAaAIgmgCIJgCilQ+g+jeR1VW//p4GpSueBoUNCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCI1iSArR94ooYWc2EFIJoAiNYsANsgxlrNQ9MVQAQMQ9s5aL4FEkG21u9/8wCGof1FoI0e3vcuAhiGPi4G2+nl/e4mgGHo56JwXT29z939Bxnji+Nfj9iPnoZ+rLsAxnq9aOxHV1sg2NrN6XR/aH0S0IoVgGgCIJoAiHYzDMPgcwCJTqf7gxWAaAIg2q8AbINI8nPerQBEexKAVYAE4zm3AhDttwCsAuzZ8/k+uwKIgD06N9e2QES7GIBVgD25NM8vrgAiYA9emuNXt0AioLLX5nfSZwARUNGUuZ38IVgEVDJ1Xmf9FkgEVDBnTmf/GlQE9GzufC4a5uPx7nHJn4e1vPXGvOiLMKsBPVgyh6sNsNWAra1xA179Di4Erm3NncdVtzBiYC3X2m7/DzLvL+tWw5TZAAAAAElFTkSuQmCC" />
-  <link rel="manifest" href="manifest.json" />
-  <title>Registro Presenze</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg:#0f0f1a; --surface:#1a1a2e; --surface2:#22223b;
-      --accent:#e8c547; --accent2:#f4a261; --text:#f0eee8;
-      --muted:#8a8a9a; --border:rgba(255,255,255,0.08);
-      --ok:#4ecdc4; --err:#ff6b6b; --r:16px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-    html,body{height:100%;overflow-x:hidden;}
-    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100dvh;}
-    body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;
-      background:radial-gradient(circle,rgba(232,197,71,.06) 0%,transparent 70%);pointer-events:none;}
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#0f0f1a"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Presenze"/>
+<link rel="manifest" href="manifest.json"/>
+<title>Registro Presenze</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet"/>
+<!-- jsPDF per generare PDF lato client -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{
+  --bg:#0f0f1a; --s1:#1a1a2e; --s2:#22223b; --s3:#2a2a40;
+  --ac:#e8c547; --ac2:#f4a261; --tx:#f0eee8; --mu:#8a8a9a;
+  --bd:rgba(255,255,255,0.09); --ok:#4ecdc4; --er:#ff6b6b; --r:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow-x:hidden;}
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;min-height:100dvh;}
+body::before{content:'';position:fixed;top:-180px;right:-180px;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(232,197,71,.07) 0%,transparent 70%);pointer-events:none;z-index:0;}
 
-    /* HEADER */
-    header{padding:20px 20px 0;background:var(--surface);border-bottom:1px solid var(--border);
-      position:sticky;top:0;z-index:100;}
-    .hrow{max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-    h1{font-family:'DM Serif Display',serif;font-size:1.4rem;letter-spacing:-.02em;}
-    h1 span{color:var(--accent);}
-    .hdate{background:rgba(232,197,71,.12);border:1px solid rgba(232,197,71,.25);color:var(--accent);
-      padding:5px 12px;border-radius:100px;font-size:.75rem;font-weight:500;}
+/* ── HEADER ── */
+header{background:var(--s1);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100;padding:16px 18px 0;}
+.hrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;max-width:680px;margin-left:auto;margin-right:auto;}
+h1{font-family:'DM Serif Display',serif;font-size:1.35rem;letter-spacing:-.02em;}
+h1 em{color:var(--ac);font-style:normal;}
+.hdate{background:rgba(232,197,71,.12);border:1px solid rgba(232,197,71,.28);color:var(--ac);
+  padding:5px 13px;border-radius:100px;font-size:.73rem;font-weight:600;}
+.tabs{max-width:680px;margin:0 auto;display:flex;}
+.tab{flex:1;padding:10px 2px;background:none;border:none;border-bottom:2.5px solid transparent;
+  color:var(--mu);font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;
+  cursor:pointer;transition:all .2s;letter-spacing:.04em;text-transform:uppercase;}
+.tab.on{color:var(--ac);border-bottom-color:var(--ac);}
 
-    /* TABS */
-    .tabs{max-width:700px;margin:0 auto;display:flex;}
-    .tab{flex:1;padding:10px 4px;background:none;border:none;border-bottom:2px solid transparent;
-      color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;
-      cursor:pointer;transition:all .2s;letter-spacing:.03em;text-transform:uppercase;}
-    .tab.on{color:var(--accent);border-bottom-color:var(--accent);}
+/* ── MAIN ── */
+main{max-width:680px;margin:0 auto;padding:18px 16px 96px;}
+.page{display:none;}.page.on{display:block;}
 
-    /* MAIN */
-    main{max-width:700px;margin:0 auto;padding:20px 16px 90px;}
-    .page{display:none;}.page.on{display:block;}
+/* ── CARD ── */
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:20px;margin-bottom:14px;}
+.ctitle{font-family:'DM Serif Display',serif;font-size:1rem;margin-bottom:16px;display:flex;align-items:center;gap:9px;}
+.ci{width:28px;height:28px;background:rgba(232,197,71,.15);border-radius:7px;
+  display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
 
-    /* CARD */
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:14px;}
-    .ctitle{font-family:'DM Serif Display',serif;font-size:1.05rem;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
-    .cicon{width:30px;height:30px;background:rgba(232,197,71,.15);border-radius:8px;
-      display:flex;align-items:center;justify-content:center;font-size:.95rem;}
+/* ── FORM ── */
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fg{display:flex;flex-direction:column;gap:5px;}
+.fg.full{grid-column:1/-1;}
+label{font-size:.68rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.09em;}
+input,select,textarea{
+  background:var(--s2);border:1px solid var(--bd);border-radius:10px;
+  color:var(--tx);font-family:'DM Sans',sans-serif;font-size:.88rem;
+  padding:11px 13px;outline:none;width:100%;transition:border-color .2s,box-shadow .2s;}
+input:focus,select:focus,textarea:focus{
+  border-color:rgba(232,197,71,.55);box-shadow:0 0 0 3px rgba(232,197,71,.09);}
+select option{background:var(--s2);}
+textarea{resize:vertical;min-height:88px;line-height:1.6;}
+.trow-time{display:flex;gap:8px;align-items:center;}
+.trow-time span{color:var(--mu);font-size:.9rem;}
 
-    /* FORM */
-    .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-    .fg{display:flex;flex-direction:column;gap:5px;}
-    .fg.full{grid-column:1/-1;}
-    label{font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
-    input,select,textarea{background:var(--surface2);border:1px solid var(--border);border-radius:10px;
-      color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;padding:11px 13px;
-      transition:border-color .2s,box-shadow .2s;outline:none;width:100%;}
-    input:focus,select:focus,textarea:focus{border-color:rgba(232,197,71,.5);box-shadow:0 0 0 3px rgba(232,197,71,.08);}
-    select option{background:var(--surface2);}
-    textarea{resize:vertical;min-height:85px;line-height:1.5;}
-    .trow{display:flex;gap:8px;align-items:center;}
-    .trow span{color:var(--muted);}
+/* ── CHIPS ── */
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{padding:6px 14px;border-radius:100px;background:var(--s2);border:1px solid var(--bd);
+  color:var(--mu);font-size:.8rem;font-weight:600;cursor:pointer;transition:all .18s;user-select:none;}
+.chip.on{background:rgba(232,197,71,.18);border-color:rgba(232,197,71,.5);color:var(--ac);}
 
-    /* CHIPS */
-    .chips{display:flex;flex-wrap:wrap;gap:7px;}
-    .chip{padding:6px 13px;border-radius:100px;background:var(--surface2);border:1px solid var(--border);
-      color:var(--muted);font-size:.8rem;font-weight:500;cursor:pointer;transition:all .18s;user-select:none;}
-    .chip.on{background:rgba(232,197,71,.18);border-color:rgba(232,197,71,.5);color:var(--accent);}
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:12px 20px;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;
+  font-size:.88rem;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none;}
+.btn-p{background:var(--ac);color:#1a1a2e;width:100%;margin-top:8px;}
+.btn-p:hover{background:#f0d060;transform:translateY(-1px);box-shadow:0 4px 18px rgba(232,197,71,.3);}
+.btn-p:active{transform:none;}
+.btn-g{background:var(--s2);color:var(--tx);border:1px solid var(--bd);}
+.btn-ok{background:rgba(78,205,196,.13);color:var(--ok);border:1px solid rgba(78,205,196,.3);}
+.btn-ok:hover{background:rgba(78,205,196,.25);}
+.btn-del{background:rgba(255,107,107,.13);color:var(--er);border:none;
+  padding:7px 10px;border-radius:8px;font-size:.76rem;cursor:pointer;transition:all .2s;}
+.btn-del:hover{background:rgba(255,107,107,.28);}
+.btn-share{background:rgba(232,197,71,.13);color:var(--ac);border:1px solid rgba(232,197,71,.28);
+  padding:7px 11px;border-radius:8px;font-size:.76rem;cursor:pointer;transition:all .2s;}
+.btn-share:hover{background:rgba(232,197,71,.28);}
+.flex-r{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
 
-    /* BUTTONS */
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;
-      padding:13px 20px;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;
-      font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;}
-    .btn-p{background:var(--accent);color:#1a1a2e;width:100%;margin-top:6px;}
-    .btn-p:hover{background:#f0d060;transform:translateY(-1px);box-shadow:0 4px 20px rgba(232,197,71,.3);}
-    .btn-x{background:rgba(255,107,107,.15);color:var(--err);padding:6px 11px;font-size:.78rem;border-radius:8px;border:none;cursor:pointer;}
-    .btn-x:hover{background:rgba(255,107,107,.28);}
-    .btn-e{background:rgba(78,205,196,.12);color:var(--ok);border:1px solid rgba(78,205,196,.3);flex:1;}
-    .btn-e:hover{background:rgba(78,205,196,.22);}
-    .flex-row{display:flex;gap:10px;margin-bottom:14px;}
+/* ── ENTRY CARD ── */
+.elist{display:flex;flex-direction:column;gap:10px;}
+.ecard{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);
+  padding:15px 16px;display:grid;grid-template-columns:1fr auto;gap:8px;
+  animation:si .22s ease;}
+@keyframes si{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.ename{font-family:'DM Serif Display',serif;font-size:.98rem;margin-bottom:5px;}
+.emeta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;}
+.pill{border-radius:100px;padding:3px 9px;font-size:.7rem;display:inline-flex;align-items:center;gap:3px;}
+.pill-d{color:var(--ac);background:rgba(232,197,71,.1);}
+.pill-t{color:var(--ok);background:rgba(78,205,196,.1);}
+.pill-h{color:var(--ac2);background:rgba(244,162,97,.1);}
+.elavoro{font-size:.8rem;color:var(--mu);line-height:1.6;border-left:2px solid var(--bd);padding-left:9px;}
+.eacts{display:flex;flex-direction:column;gap:5px;align-items:flex-end;justify-content:flex-start;}
 
-    /* FILTERS */
-    .filters{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
-    .filters select,.filters input{flex:1;min-width:130px;}
+/* ── FILTERS ── */
+.filters{display:flex;gap:9px;margin-bottom:13px;flex-wrap:wrap;}
+.filters select,.filters input{flex:1;min-width:130px;}
 
-    /* ENTRIES */
-    .elist{display:flex;flex-direction:column;gap:11px;}
-    .ecard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
-      padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:8px;
-      animation:si .25s ease;}
-    @keyframes si{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-    .ecard:hover{border-color:rgba(255,255,255,.14);}
-    .ename{font-family:'DM Serif Display',serif;font-size:1rem;margin-bottom:4px;}
-    .emeta{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:7px;}
-    .pill{background:var(--surface2);border-radius:100px;padding:3px 9px;font-size:.72rem;
-      color:var(--muted);display:flex;align-items:center;gap:3px;}
-    .pill.d{color:var(--accent);background:rgba(232,197,71,.1);}
-    .pill.t{color:var(--ok);background:rgba(78,205,196,.1);}
-    .pill.h{color:var(--accent2);background:rgba(244,162,97,.1);}
-    .elaboro{font-size:.83rem;color:var(--muted);line-height:1.5;border-left:2px solid var(--border);padding-left:9px;}
+/* ── EMPTY ── */
+.empty{text-align:center;padding:48px 20px;color:var(--mu);}
+.empty .ei{font-size:2.4rem;opacity:.3;margin-bottom:10px;}
 
-    /* EMPTY */
-    .empty{text-align:center;padding:50px 20px;color:var(--muted);}
-    .empty .ei{font-size:2.5rem;opacity:.35;margin-bottom:10px;}
+/* ── STATS ── */
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:16px;}
+.scard{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:16px;}
+.slbl{font-size:.66rem;text-transform:uppercase;letter-spacing:.09em;color:var(--mu);margin-bottom:5px;}
+.sval{font-family:'DM Serif Display',serif;font-size:1.85rem;color:var(--ac);line-height:1;}
+.ssub{font-size:.73rem;color:var(--mu);margin-top:3px;}
+.tstat{background:var(--s1);border:1px solid var(--bd);border-radius:12px;
+  padding:12px 15px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.tsn{font-weight:600;font-size:.87rem;}
+.tsv{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--ac);}
+.tsd{font-size:.7rem;color:var(--mu);text-align:right;}
+.bar{height:3px;background:var(--s2);border-radius:3px;margin-top:6px;overflow:hidden;}
+.barf{height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2));border-radius:3px;transition:width .5s ease;}
 
-    /* STATS */
-    .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:18px;}
-    .scard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;}
-    .slabel{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;}
-    .sval{font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--accent);line-height:1;}
-    .ssub{font-size:.76rem;color:var(--muted);margin-top:3px;}
-    .tstat{background:var(--surface);border:1px solid var(--border);border-radius:12px;
-      padding:13px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
-    .tsname{font-weight:500;font-size:.88rem;}
-    .tsval{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--accent);}
-    .tsdays{font-size:.72rem;color:var(--muted);text-align:right;}
-    .bar{height:4px;background:var(--surface2);border-radius:4px;margin-top:6px;overflow:hidden;}
-    .barf{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:4px;transition:width .6s ease;}
+/* ── SETTINGS ── */
+.sh{font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:9px;font-weight:700;}
+.trow2{background:var(--s2);border:1px solid var(--bd);border-radius:11px;
+  padding:10px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;font-size:.88rem;}
+.addrow{display:flex;gap:9px;margin-top:6px;}
+.addrow input{flex:1;}
+.btnadd{background:rgba(232,197,71,.18);color:var(--ac);border:1px solid rgba(232,197,71,.3);
+  padding:11px 16px;border-radius:10px;font-size:1.1rem;cursor:pointer;transition:all .2s;flex-shrink:0;}
+.btnadd:hover{background:rgba(232,197,71,.32);}
 
-    /* SETTINGS */
-    .sh{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px;}
-    .trow2{background:var(--surface);border:1px solid var(--border);border-radius:12px;
-      padding:11px 15px;display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;}
-    .addrow{display:flex;gap:9px;margin-top:7px;}
-    .addrow input{flex:1;}
-    .btnadd{background:rgba(232,197,71,.18);color:var(--accent);border:1px solid rgba(232,197,71,.3);
-      padding:11px 15px;border-radius:10px;font-size:1.2rem;cursor:pointer;transition:all .2s;}
-    .btnadd:hover{background:rgba(232,197,71,.3);}
+/* ── BOTTOM NAV ── */
+nav{position:fixed;bottom:0;left:0;right:0;background:var(--s1);border-top:1px solid var(--bd);
+  display:flex;padding:6px 0 max(6px,env(safe-area-inset-bottom));z-index:200;}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px;
+  cursor:pointer;background:none;border:none;color:var(--mu);transition:color .2s;}
+.ni.on{color:var(--ac);}
+.nicon{font-size:1.2rem;}
+.nlabel{font-size:.58rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-family:'DM Sans',sans-serif;}
 
-    /* BOTTOM NAV */
-    nav{position:fixed;bottom:0;left:0;right:0;background:var(--surface);
-      border-top:1px solid var(--border);display:flex;
-      padding:6px 0 max(6px,env(safe-area-inset-bottom));z-index:200;}
-    .ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px;
-      cursor:pointer;transition:all .2s;background:none;border:none;color:var(--muted);}
-    .ni.on{color:var(--accent);}
-    .nicon{font-size:1.25rem;}
-    .nlabel{font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-family:'DM Sans',sans-serif;}
+/* ── OVERLAY / MODAL ── */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);
+  z-index:500;display:flex;align-items:flex-end;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .25s;}
+.overlay.on{opacity:1;pointer-events:all;}
+.modal{background:var(--s1);border:1px solid var(--bd);border-radius:24px 24px 0 0;
+  padding:26px 20px max(32px,env(safe-area-inset-bottom));width:100%;max-width:520px;
+  transform:translateY(50px);transition:transform .3s cubic-bezier(.22,1,.36,1);}
+.overlay.on .modal{transform:translateY(0);}
+.mtitle{font-family:'DM Serif Display',serif;font-size:1.15rem;margin-bottom:4px;}
+.msub{font-size:.78rem;color:var(--mu);margin-bottom:18px;line-height:1.5;}
 
-    /* SEND EMAIL BUTTON */
-    .btn-mail{background:rgba(232,197,71,.13);color:var(--accent);padding:6px 11px;font-size:.78rem;
-      border-radius:8px;border:1px solid rgba(232,197,71,.25);cursor:pointer;transition:all .2s;white-space:nowrap;}
-    .btn-mail:hover{background:rgba(232,197,71,.26);}
-    .eactions{display:flex;flex-direction:column;gap:5px;align-items:flex-end;}
+/* Share modal buttons */
+.share-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+.share-btn{display:flex;align-items:center;gap:14px;padding:15px 18px;border-radius:14px;
+  background:var(--s2);border:1px solid var(--bd);cursor:pointer;transition:all .2s;text-align:left;}
+.share-btn:hover{border-color:rgba(255,255,255,.18);background:var(--s3);}
+.share-btn.email:hover{border-color:rgba(78,205,196,.4);}
+.share-btn.whatsapp:hover{border-color:rgba(37,211,102,.4);}
+.share-btn.pdf:hover{border-color:rgba(232,197,71,.4);}
+.sb-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;
+  justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.sb-icon.email{background:rgba(78,205,196,.15);}
+.sb-icon.whatsapp{background:rgba(37,211,102,.15);}
+.sb-icon.pdf{background:rgba(232,197,71,.15);}
+.sb-text strong{display:block;font-size:.9rem;font-weight:700;margin-bottom:2px;}
+.sb-text span{font-size:.75rem;color:var(--mu);}
 
-    /* MODAL */
-    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);
-      z-index:500;display:flex;align-items:flex-end;justify-content:center;
-      opacity:0;pointer-events:none;transition:opacity .25s;}
-    .overlay.on{opacity:1;pointer-events:all;}
-    .modal{background:var(--surface);border:1px solid var(--border);border-radius:24px 24px 0 0;
-      padding:28px 22px max(36px,env(safe-area-inset-bottom));width:100%;max-width:520px;
-      transform:translateY(40px);transition:transform .3s ease;}
-    .overlay.on .modal{transform:translateY(0);}
-    .mtitle{font-family:'DM Serif Display',serif;font-size:1.15rem;margin-bottom:4px;}
-    .msub{font-size:.8rem;color:var(--muted);margin-bottom:18px;}
-    .mpreview{background:var(--surface2);border:1px solid var(--border);border-radius:12px;
-      padding:14px;font-size:.78rem;line-height:1.75;color:var(--text);margin-bottom:16px;
-      max-height:160px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;font-family:monospace;}
-    .mrow{display:flex;gap:10px;align-items:center;margin-bottom:12px;}
-    .mrow label{min-width:86px;font-size:.7rem;}
-    .mrow input{flex:1;}
-    .mbtns{display:flex;gap:10px;margin-top:4px;}
-    .btn-cancel{background:var(--surface2);color:var(--muted);flex:1;border:none;}
-    .btn-send{background:var(--accent);color:#1a1a2e;flex:2;font-weight:700;border:none;}
-    .btn-send:hover{background:#f0d060;transform:translateY(-1px);}
+/* PDF preview modal */
+.mrow{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+.mrow input{width:100%;}
 
-    /* TOAST */
-    #toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(60px);
-      background:var(--surface2);border:1px solid var(--border);color:var(--text);
-      padding:11px 20px;border-radius:100px;font-size:.85rem;font-weight:500;z-index:999;
-      transition:transform .3s ease;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,.4);pointer-events:none;}
-    #toast.on{transform:translateX(-50%) translateY(0);}
-    #toast.ok{border-color:rgba(78,205,196,.4);color:var(--ok);}
+/* ── TOAST ── */
+#toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(50px);
+  background:var(--s2);border:1px solid var(--bd);color:var(--tx);
+  padding:11px 20px;border-radius:100px;font-size:.83rem;font-weight:600;z-index:999;
+  transition:transform .28s ease;white-space:nowrap;pointer-events:none;
+  box-shadow:0 8px 30px rgba(0,0,0,.5);}
+#toast.on{transform:translateX(-50%) translateY(0);}
+#toast.ok{border-color:rgba(78,205,196,.4);color:var(--ok);}
+#toast.warn{border-color:rgba(232,197,71,.4);color:var(--ac);}
 
-    @media(max-width:420px){.fgrid,.sgrid{grid-template-columns:1fr;}}
-    @media print{
-      header,nav,.filters,.btn-e,.btn-x,#toast{display:none!important;}
-      body{background:white;color:black;}
-      .ecard{border:1px solid #ccc;break-inside:avoid;}
-      .elaboro{color:#333;}.pill{background:#eee;color:#333;}
-    }
-  </style>
+@media(max-width:420px){.fg2,.sgrid{grid-template-columns:1fr;}}
+@media print{header,nav,.overlay,#toast{display:none!important;}}
+</style>
 </head>
 <body>
 
 <header>
   <div class="hrow">
-    <div>
-      <h1>Registro <span>Presenze</span></h1>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:2px;">Tirocinanti — Negozio</p>
-    </div>
+    <h1>Registro <em>Presenze</em></h1>
     <div class="hdate" id="hdate"></div>
   </div>
   <div class="tabs">
     <button class="tab on" data-page="nuovo">➕ Nuovo</button>
     <button class="tab" data-page="registro">📄 Registro</button>
     <button class="tab" data-page="stats">📊 Stats</button>
-    <button class="tab" data-page="imp">⚙️ Impost.</button>
+    <button class="tab" data-page="imp">⚙️ Imposta</button>
   </div>
 </header>
 
 <main>
-  <!-- NUOVO -->
+
+  <!-- ════ NUOVO ════ -->
   <div class="page on" id="pg-nuovo">
     <div class="card">
-      <div class="ctitle"><div class="cicon">📋</div>Registra presenza</div>
+      <div class="ctitle"><div class="ci">📋</div>Registra presenza</div>
+
       <div style="margin-bottom:14px;">
-        <label style="display:block;margin-bottom:7px;">Tirocinante</label>
+        <label style="display:block;margin-bottom:8px;">Tirocinante</label>
         <div class="chips" id="chips"></div>
       </div>
-      <div class="fgrid">
-        <div class="fg"><label>Data</label><input type="date" id="iData" /></div>
+
+      <div class="fg2">
+        <div class="fg">
+          <label>Data</label>
+          <input type="date" id="iData"/>
+        </div>
         <div class="fg">
           <label>Orario (facoltativo)</label>
-          <div class="trow">
-            <input type="time" id="iIn" style="flex:1;" />
+          <div class="trow-time">
+            <input type="time" id="iIn" style="flex:1;"/>
             <span>→</span>
-            <input type="time" id="iOut" style="flex:1;" />
+            <input type="time" id="iOut" style="flex:1;"/>
           </div>
         </div>
-        <div class="fg full"><label>Lavoro svolto</label>
-          <textarea id="iLav" placeholder="Descrivi le attività svolte..."></textarea></div>
+        <div class="fg full">
+          <label>Lavoro svolto</label>
+          <textarea id="iLav" placeholder="Descrivi le attività svolte durante il tirocinio..."></textarea>
+        </div>
       </div>
-      <button class="btn btn-p" onclick="salva()">✓ Salva presenza</button>
-      <button class="btn" id="btnSalvaInvia" style="background:rgba(232,197,71,.15);color:var(--accent);border:1px solid rgba(232,197,71,.3);width:100%;margin-top:8px;display:none;" onclick="salvaEInvia()">✉️ Salva e invia per email</button>
+
+      <button class="btn btn-p" id="btnSalva" onclick="salva()">✓ Salva presenza</button>
     </div>
   </div>
 
-  <!-- REGISTRO -->
+  <!-- ════ REGISTRO ════ -->
   <div class="page" id="pg-registro">
     <div class="filters">
-      <select id="fTiro" onchange="renderReg()"><option value="">Tutti</option></select>
-      <input type="month" id="fMese" onchange="renderReg()" />
+      <select id="fTiro" onchange="renderReg()">
+        <option value="">Tutti i tirocinanti</option>
+      </select>
+      <input type="month" id="fMese" onchange="renderReg()"/>
     </div>
-    <div class="flex-row">
-      <button class="btn btn-e" onclick="expCSV()">📥 CSV</button>
-      <button class="btn btn-e" onclick="window.print()">🖨️ Stampa</button>
+    <div class="flex-r">
+      <button class="btn btn-ok" style="flex:1;" onclick="expCSV()">📥 CSV</button>
+      <button class="btn btn-ok" style="flex:1;" onclick="window.print()">🖨️ Stampa</button>
+      <button class="btn btn-ok" style="flex:1;" onclick="pdfRegistro()">📄 PDF registro</button>
     </div>
     <div class="elist" id="elist"></div>
   </div>
 
-  <!-- STATS -->
+  <!-- ════ STATS ════ -->
   <div class="page" id="pg-stats">
     <div class="sgrid" id="sgrid"></div>
     <div class="card">
-      <div class="ctitle"><div class="cicon">👤</div>Per tirocinante</div>
+      <div class="ctitle"><div class="ci">👤</div>Per tirocinante</div>
       <div id="tlist"></div>
     </div>
   </div>
 
-  <!-- IMPOSTAZIONI -->
+  <!-- ════ IMPOSTAZIONI ════ -->
   <div class="page" id="pg-imp">
     <div class="card">
       <div class="sh">Tirocinanti</div>
       <div id="tsettings"></div>
       <div class="addrow">
-        <input type="text" id="newName" placeholder="Nome cognome..." maxlength="40"
-          onkeydown="if(event.key==='Enter')addTiro()" />
+        <input type="text" id="newName" placeholder="Nome e cognome..." maxlength="40"
+          onkeydown="if(event.key==='Enter')addTiro()"/>
         <button class="btnadd" onclick="addTiro()">+</button>
       </div>
     </div>
+
     <div class="card">
-      <div class="sh">📧 Email destinatario</div>
-      <p style="font-size:.78rem;color:var(--muted);margin-bottom:12px;">Indirizzo a cui inviare le presenze per impostazione predefinita</p>
+      <div class="sh">📧 Destinatari predefiniti</div>
+      <p style="font-size:.76rem;color:var(--mu);margin-bottom:12px;line-height:1.5;">
+        Questi dati verranno precompilati quando condividi una presenza
+      </p>
       <div class="fg" style="margin-bottom:10px;">
         <label>Email destinatario</label>
-        <input type="email" id="setMailDest" placeholder="es. titolare@negozio.it" oninput="saveMailSettings()" />
+        <input type="email" id="setEmail" placeholder="es. titolare@negozio.it" oninput="saveCfg()"/>
+      </div>
+      <div class="fg" style="margin-bottom:10px;">
+        <label>Numero WhatsApp destinatario</label>
+        <input type="tel" id="setWA" placeholder="es. +39 333 1234567" oninput="saveCfg()"/>
       </div>
       <div class="fg">
-        <label>Nome mittente (facoltativo)</label>
-        <input type="text" id="setMailNome" placeholder="es. Negozio XYZ" oninput="saveMailSettings()" />
+        <label>Nome negozio / mittente</label>
+        <input type="text" id="setNome" placeholder="es. Negozio XYZ" oninput="saveCfg()"/>
       </div>
     </div>
+
     <div class="card">
-      <button class="btn" style="background:var(--surface2);color:var(--text);width:100%;margin-bottom:10px;" onclick="expJSON()">💾 Backup JSON</button>
-      <button class="btn" style="background:rgba(255,107,107,.12);color:var(--err);width:100%;border:1px solid rgba(255,107,107,.2);" onclick="resetAll()">🗑️ Cancella tutti i dati</button>
+      <div class="sh">Dati</div>
+      <button class="btn btn-g" style="width:100%;margin-bottom:9px;" onclick="expJSON()">💾 Backup JSON</button>
+      <button class="btn" style="background:rgba(255,107,107,.12);color:var(--er);width:100%;border:1px solid rgba(255,107,107,.2);"
+        onclick="resetAll()">🗑️ Cancella tutti i dati</button>
     </div>
-    <p style="text-align:center;color:var(--muted);font-size:.72rem;margin-top:14px;">Dati salvati localmente sul dispositivo</p>
+    <p style="text-align:center;color:var(--mu);font-size:.7rem;margin-top:12px;">
+      I dati sono salvati localmente sul tuo dispositivo
+    </p>
   </div>
+
 </main>
 
-<!-- EMAIL MODAL -->
-<div class="overlay" id="mailOverlay" onclick="closeModal(event)">
-  <div class="modal">
-    <div class="mtitle">📧 Invia presenza via email</div>
-    <div class="msub">Il tuo client email si aprirà con il messaggio precompilato</div>
-    <div class="mpreview" id="mailPreview"></div>
-    <div class="mrow">
-      <label>Email destinatario</label>
-      <input type="email" id="mailDest" placeholder="es. titolare@negozio.it" />
-    </div>
-    <div class="mrow">
-      <label>Oggetto</label>
-      <input type="text" id="mailObj" placeholder="Oggetto email..." />
-    </div>
-    <div class="mbtns">
-      <button class="btn btn-cancel" onclick="document.getElementById('mailOverlay').classList.remove('on')">✕ Annulla</button>
-      <button class="btn btn-send" onclick="inviaEmail()">✉️ Apri email</button>
-    </div>
-  </div>
-</div>
-
+<!-- ════ BOTTOM NAV ════ -->
 <nav>
   <button class="ni on" data-page="nuovo"><span class="nicon">➕</span><span class="nlabel">Nuovo</span></button>
   <button class="ni" data-page="registro"><span class="nicon">📄</span><span class="nlabel">Registro</span></button>
   <button class="ni" data-page="stats"><span class="nicon">📊</span><span class="nlabel">Stats</span></button>
-  <button class="ni" data-page="imp"><span class="nicon">⚙️</span><span class="nlabel">Impost.</span></button>
+  <button class="ni" data-page="imp"><span class="nicon">⚙️</span><span class="nlabel">Imposta</span></button>
 </nav>
 
+<!-- ════ MODAL CONDIVIDI ════ -->
+<div class="overlay" id="ovShare" onclick="closeOv('ovShare',event)">
+  <div class="modal">
+    <div class="mtitle">📤 Condividi presenza</div>
+    <div class="msub" id="shareSubtitle">Scegli come vuoi inviare il riepilogo</div>
+    <div class="share-opts">
+      <button class="share-btn email" onclick="doEmail()">
+        <div class="sb-icon email">📧</div>
+        <div class="sb-text">
+          <strong>Email</strong>
+          <span>Apre il tuo client email con il riepilogo</span>
+        </div>
+      </button>
+      <button class="share-btn whatsapp" onclick="doWhatsApp()">
+        <div class="sb-icon whatsapp">💬</div>
+        <div class="sb-text">
+          <strong>WhatsApp</strong>
+          <span>Invia il testo via WhatsApp</span>
+        </div>
+      </button>
+      <button class="share-btn pdf" onclick="doPDF()">
+        <div class="sb-icon pdf">📄</div>
+        <div class="sb-text">
+          <strong>Scarica PDF</strong>
+          <span>Genera un PDF del riepilogo presenza</span>
+        </div>
+      </button>
+    </div>
+    <button class="btn btn-g" style="width:100%;" onclick="closeOv('ovShare')">✕ Annulla</button>
+  </div>
+</div>
+
+<!-- TOAST -->
 <div id="toast"></div>
 
 <script>
-// ── STATE ──
-let S = { tirocinanti:[], presenze:[] };
-try{ const r=localStorage.getItem('pres_v2'); if(r) S=JSON.parse(r); }catch(e){}
-function save(){ try{localStorage.setItem('pres_v2',JSON.stringify(S));}catch(e){} }
+// ══════════════════════════════
+//  STATE
+// ══════════════════════════════
+let S = {tirocinanti:[], presenze:[], cfg:{email:'',wa:'',nome:''}};
+try{ const r=localStorage.getItem('pres_v3'); if(r) S=JSON.parse(r); }catch(e){}
+if(!S.cfg) S.cfg={email:'',wa:'',nome:''};
+function save(){ try{localStorage.setItem('pres_v3',JSON.stringify(S));}catch(e){} }
 
-// ── INIT ──
+let selTiro = null;   // chip selezionato
+let sharePID = null;  // presenza id per la condivisione
+
+// ══════════════════════════════
+//  INIT
+// ══════════════════════════════
 document.getElementById('hdate').textContent = fmtDate(today());
 document.getElementById('iData').value = today();
-if(!S.tirocinanti.length) S.tirocinanti=['Mario Rossi','Giulia Bianchi'], save();
-renderChips(); renderFTiro(); aggiornaBtn();
+if(!S.tirocinanti.length){ S.tirocinanti=['Mario Rossi','Giulia Bianchi']; save(); }
+renderChips();
+updateFTiro();
 
-// NAV
-document.querySelectorAll('[data-page]').forEach(b => b.addEventListener('click', () => {
-  const p = b.dataset.page;
-  document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));
-  document.querySelectorAll('[data-page]').forEach(x=>x.classList.remove('on'));
-  document.getElementById('pg-'+p).classList.add('on');
-  document.querySelectorAll('[data-page="'+p+'"]').forEach(x=>x.classList.add('on'));
-  if(p==='registro'){ renderFTiro(); renderReg(); }
-  if(p==='stats') renderStats();
-  if(p==='imp') renderSettings();
-}));
+// ══════════════════════════════
+//  NAVIGAZIONE
+// ══════════════════════════════
+document.querySelectorAll('[data-page]').forEach(b => {
+  b.addEventListener('click', () => {
+    const p = b.dataset.page;
+    document.querySelectorAll('.page').forEach(x => x.classList.remove('on'));
+    document.querySelectorAll('[data-page]').forEach(x => x.classList.remove('on'));
+    document.getElementById('pg-'+p).classList.add('on');
+    document.querySelectorAll('[data-page="'+p+'"]').forEach(x => x.classList.add('on'));
+    if(p==='registro'){ updateFTiro(); renderReg(); }
+    if(p==='stats') renderStats();
+    if(p==='imp') renderImp();
+  });
+});
 
-// ── CHIPS ──
-let selTiro=null;
+// ══════════════════════════════
+//  CHIPS
+// ══════════════════════════════
 function renderChips(){
-  const c=document.getElementById('chips'); c.innerHTML='';
-  S.tirocinanti.forEach(n=>{
-    const d=document.createElement('div');
-    d.className='chip'+(selTiro===n?' on':'');
-    d.textContent=n;
-    d.onclick=()=>{ selTiro=selTiro===n?null:n; renderChips(); };
+  const c = document.getElementById('chips');
+  c.innerHTML = '';
+  S.tirocinanti.forEach(n => {
+    const d = document.createElement('div');
+    d.className = 'chip' + (selTiro===n ? ' on' : '');
+    d.textContent = n;
+    d.onclick = () => { selTiro = selTiro===n ? null : n; renderChips(); };
     c.appendChild(d);
   });
 }
 
-// ── SALVA ──
+// ══════════════════════════════
+//  SALVA → apre modale condivisione
+// ══════════════════════════════
 function salva(){
-  if(!selTiro) return toast('Seleziona un tirocinante');
-  const data=document.getElementById('iData').value;
-  if(!data) return toast('Inserisci la data');
-  const lav=document.getElementById('iLav').value.trim();
-  if(!lav) return toast('Descrivi il lavoro svolto');
-  const i=document.getElementById('iIn').value;
-  const o=document.getElementById('iOut').value;
-  let ore=null;
-  if(i&&o){ const d=((+o.split(':')[0]*60+ +o.split(':')[1])-(+i.split(':')[0]*60+ +i.split(':')[1]))/60; if(d>0) ore=d; }
-  S.presenze.unshift({id:Date.now(),tirocinante:selTiro,data,oraI:i||null,oraO:o||null,ore,lavoro:lav});
+  if(!selTiro) return toast('Seleziona un tirocinante', 'warn');
+  const data = document.getElementById('iData').value;
+  if(!data) return toast('Inserisci la data', 'warn');
+  const lav = document.getElementById('iLav').value.trim();
+  if(!lav) return toast('Descrivi il lavoro svolto', 'warn');
+
+  const iIn  = document.getElementById('iIn').value;
+  const iOut = document.getElementById('iOut').value;
+  let ore = null;
+  if(iIn && iOut){
+    const diff = ((+iOut.split(':')[0]*60 + +iOut.split(':')[1]) - (+iIn.split(':')[0]*60 + +iIn.split(':')[1])) / 60;
+    if(diff > 0) ore = diff;
+  }
+
+  const p = {
+    id: Date.now(),
+    tirocinante: selTiro,
+    data, oraI: iIn||null, oraO: iOut||null, ore, lavoro: lav
+  };
+  S.presenze.unshift(p);
   save();
-  document.getElementById('iLav').value='';
-  document.getElementById('iIn').value='';
-  document.getElementById('iOut').value='';
-  toast('✓ Presenza salvata',true);
-  aggiornaBtn();
+
+  // reset form
+  document.getElementById('iLav').value = '';
+  document.getElementById('iIn').value  = '';
+  document.getElementById('iOut').value = '';
+
+  // apri modale condivisione
+  apriShare(p.id);
 }
 
-function salvaEInvia(){
-  if(!selTiro) return toast('Seleziona un tirocinante');
-  const data=document.getElementById('iData').value;
-  if(!data) return toast('Inserisci la data');
-  const lav=document.getElementById('iLav').value.trim();
-  if(!lav) return toast('Descrivi il lavoro svolto');
-  const i=document.getElementById('iIn').value;
-  const o=document.getElementById('iOut').value;
-  let ore=null;
-  if(i&&o){ const d=((+o.split(':')[0]*60+ +o.split(':')[1])-(+i.split(':')[0]*60+ +i.split(':')[1]))/60; if(d>0) ore=d; }
-  const p={id:Date.now(),tirocinante:selTiro,data,oraI:i||null,oraO:o||null,ore,lavoro:lav};
-  S.presenze.unshift(p); save();
-  document.getElementById('iLav').value='';
-  document.getElementById('iIn').value='';
-  document.getElementById('iOut').value='';
-  apriModal(p.id);
+// ══════════════════════════════
+//  REGISTRO
+// ══════════════════════════════
+function updateFTiro(){
+  const s = document.getElementById('fTiro');
+  if(!s) return;
+  const v = s.value;
+  s.innerHTML = '<option value="">Tutti i tirocinanti</option>';
+  S.tirocinanti.forEach(t => {
+    const o = document.createElement('option');
+    o.value = t; o.textContent = t;
+    if(v===t) o.selected=true;
+    s.appendChild(o);
+  });
 }
 
-function aggiornaBtn(){
-  const btn=document.getElementById('btnSalvaInvia');
-  if(btn) btn.style.display = S.mailDest ? 'flex' : 'none';
-}
-
-// ── REGISTRO ──
-function renderFTiro(){
-  const s=document.getElementById('fTiro'); const v=s.value;
-  s.innerHTML='<option value="">Tutti i tirocinanti</option>';
-  S.tirocinanti.forEach(t=>s.innerHTML+=`<option ${v===t?'selected':''}>${t}</option>`);
-}
 function renderReg(){
-  const ft=document.getElementById('fTiro')?.value||'';
-  const fm=document.getElementById('fMese')?.value||'';
-  let pp=S.presenze;
-  if(ft) pp=pp.filter(p=>p.tirocinante===ft);
-  if(fm) pp=pp.filter(p=>p.data.startsWith(fm));
-  const el=document.getElementById('elist');
-  if(!pp.length){ el.innerHTML='<div class="empty"><div class="ei">📭</div><p>Nessuna presenza trovata</p></div>'; return; }
-  el.innerHTML=pp.map(p=>`
+  const ft = document.getElementById('fTiro').value;
+  const fm = document.getElementById('fMese').value;
+  let pp = S.presenze;
+  if(ft) pp = pp.filter(p => p.tirocinante===ft);
+  if(fm) pp = pp.filter(p => p.data.startsWith(fm));
+  const el = document.getElementById('elist');
+  if(!pp.length){
+    el.innerHTML = '<div class="empty"><div class="ei">📭</div><p>Nessuna presenza trovata</p></div>';
+    return;
+  }
+  el.innerHTML = pp.map(p => `
     <div class="ecard">
       <div>
-        <div class="ename">${p.tirocinante}</div>
+        <div class="ename">${esc(p.tirocinante)}</div>
         <div class="emeta">
-          <span class="pill d">📅 ${fmtDate(p.data)}</span>
-          ${p.oraI?`<span class="pill t">🕐 ${p.oraI}${p.oraO?' – '+p.oraO:''}</span>`:''}
-          ${p.ore?`<span class="pill h">⏱ ${p.ore.toFixed(1)}h</span>`:''}
+          <span class="pill pill-d">📅 ${fmtDate(p.data)}</span>
+          ${p.oraI ? `<span class="pill pill-t">🕐 ${p.oraI}${p.oraO?' – '+p.oraO:''}</span>` : ''}
+          ${p.ore  ? `<span class="pill pill-h">⏱ ${p.ore.toFixed(1)}h</span>` : ''}
         </div>
-        <div class="elaboro">${p.lavoro}</div>
+        <div class="elavoro">${esc(p.lavoro)}</div>
       </div>
-      <div class="eactions">
-        <button class="btn-x" onclick="del(${p.id})">✕</button>
-        <button class="btn-mail" onclick="apriModal(${p.id})">✉️</button>
+      <div class="eacts">
+        <button class="btn-del" onclick="delP(${p.id})">✕</button>
+        <button class="btn-share" onclick="apriShare(${p.id})">📤</button>
       </div>
     </div>`).join('');
 }
-function del(id){
+
+function delP(id){
   if(!confirm('Eliminare questa presenza?')) return;
-  S.presenze=S.presenze.filter(p=>p.id!==id); save(); renderReg();
+  S.presenze = S.presenze.filter(p => p.id!==id);
+  save(); renderReg();
   toast('Presenza eliminata');
 }
 
-// ── STATS ──
+// ══════════════════════════════
+//  STATS
+// ══════════════════════════════
 function renderStats(){
-  const tot=S.presenze.length;
-  const ore=S.presenze.reduce((s,p)=>s+(p.ore||0),0);
-  const mese=new Date().toISOString().slice(0,7);
-  const mes=S.presenze.filter(p=>p.data.startsWith(mese)).length;
-  const ntiro=new Set(S.presenze.map(p=>p.tirocinante)).size;
-  document.getElementById('sgrid').innerHTML=`
-    <div class="scard"><div class="slabel">Presenze totali</div><div class="sval">${tot}</div><div class="ssub">registrazioni</div></div>
-    <div class="scard"><div class="slabel">Ore totali</div><div class="sval">${ore.toFixed(0)}</div><div class="ssub">ore tirocinio</div></div>
-    <div class="scard"><div class="slabel">Questo mese</div><div class="sval">${mes}</div><div class="ssub">presenze</div></div>
-    <div class="scard"><div class="slabel">Tirocinanti</div><div class="sval">${ntiro}</div><div class="ssub">attivi</div></div>`;
-  const maxOre=Math.max(...S.tirocinanti.map(t=>S.presenze.filter(p=>p.tirocinante===t).reduce((s,p)=>s+(p.ore||0),0)),1);
-  document.getElementById('tlist').innerHTML=S.tirocinanti.map(t=>{
-    const pp=S.presenze.filter(p=>p.tirocinante===t);
-    const o=pp.reduce((s,p)=>s+(p.ore||0),0);
+  const tot  = S.presenze.length;
+  const ore  = S.presenze.reduce((a,p) => a+(p.ore||0), 0);
+  const mese = new Date().toISOString().slice(0,7);
+  const mes  = S.presenze.filter(p => p.data.startsWith(mese)).length;
+  const ntiro= new Set(S.presenze.map(p => p.tirocinante)).size;
+  document.getElementById('sgrid').innerHTML = `
+    <div class="scard"><div class="slbl">Presenze totali</div><div class="sval">${tot}</div><div class="ssub">registrazioni</div></div>
+    <div class="scard"><div class="slbl">Ore totali</div><div class="sval">${ore.toFixed(0)}</div><div class="ssub">ore tirocinio</div></div>
+    <div class="scard"><div class="slbl">Questo mese</div><div class="sval">${mes}</div><div class="ssub">presenze</div></div>
+    <div class="scard"><div class="slbl">Tirocinanti</div><div class="sval">${ntiro}</div><div class="ssub">attivi</div></div>`;
+  const maxO = Math.max(...S.tirocinanti.map(t =>
+    S.presenze.filter(p=>p.tirocinante===t).reduce((a,p)=>a+(p.ore||0),0)), 1);
+  document.getElementById('tlist').innerHTML = S.tirocinanti.map(t => {
+    const pp = S.presenze.filter(p=>p.tirocinante===t);
+    const o  = pp.reduce((a,p)=>a+(p.ore||0),0);
     return `<div class="tstat">
-      <div style="flex:1">
-        <div class="tsname">${t}</div>
-        <div class="bar"><div class="barf" style="width:${(o/maxOre*100).toFixed(0)}%"></div></div>
+      <div style="flex:1;">
+        <div class="tsn">${esc(t)}</div>
+        <div class="bar"><div class="barf" style="width:${(o/maxO*100).toFixed(0)}%"></div></div>
       </div>
-      <div style="margin-left:16px;text-align:right">
-        <div class="tsval">${o.toFixed(1)}h</div>
-        <div class="tsdays">${pp.length} giorni</div>
+      <div style="margin-left:16px;text-align:right;">
+        <div class="tsv">${o.toFixed(1)}h</div>
+        <div class="tsd">${pp.length} giorni</div>
       </div></div>`;
   }).join('');
 }
 
-// ── SETTINGS ──
-function renderSettings(){
-  document.getElementById('tsettings').innerHTML=S.tirocinanti.map((t,i)=>`
-    <div class="trow2"><span>${t}</span>
-    <button class="btn-x" onclick="rmTiro(${i})">✕ Rimuovi</button></div>`).join('');
-  // Popola campi email
-  const md = document.getElementById('setMailDest');
-  const mn = document.getElementById('setMailNome');
-  if(md) md.value = S.mailDest || '';
-  if(mn) mn.value = S.mailNome || '';
+// ══════════════════════════════
+//  IMPOSTAZIONI
+// ══════════════════════════════
+function renderImp(){
+  document.getElementById('tsettings').innerHTML = S.tirocinanti.map((t,i) => `
+    <div class="trow2"><span>${esc(t)}</span>
+    <button class="btn-del" onclick="rmTiro(${i})">✕ Rimuovi</button></div>`).join('');
+  document.getElementById('setEmail').value = S.cfg.email||'';
+  document.getElementById('setWA').value    = S.cfg.wa||'';
+  document.getElementById('setNome').value  = S.cfg.nome||'';
+}
+function saveCfg(){
+  S.cfg.email = document.getElementById('setEmail').value.trim();
+  S.cfg.wa    = document.getElementById('setWA').value.trim();
+  S.cfg.nome  = document.getElementById('setNome').value.trim();
+  save();
 }
 function addTiro(){
-  const n=document.getElementById('newName').value.trim();
+  const n = document.getElementById('newName').value.trim();
   if(!n) return;
-  if(S.tirocinanti.includes(n)) return toast('Già presente');
+  if(S.tirocinanti.includes(n)) return toast('Già presente', 'warn');
   S.tirocinanti.push(n); save();
   document.getElementById('newName').value='';
-  renderSettings(); renderChips(); renderFTiro();
-  toast('✓ Aggiunto',true);
+  renderImp(); renderChips(); updateFTiro();
+  toast('✓ Tirocinante aggiunto','ok');
 }
 function rmTiro(i){
   if(!confirm('Rimuovere "'+S.tirocinanti[i]+'"?')) return;
-  S.tirocinanti.splice(i,1); save(); renderSettings(); renderChips(); renderFTiro();
+  S.tirocinanti.splice(i,1); save(); renderImp(); renderChips(); updateFTiro();
 }
 
-// ── EXPORT ──
+// ══════════════════════════════
+//  EXPORT CSV / JSON
+// ══════════════════════════════
 function expCSV(){
   const rows=[['Tirocinante','Data','Ora Inizio','Ora Fine','Ore','Lavoro svolto']];
-  S.presenze.forEach(p=>rows.push([p.tirocinante,p.data,p.oraI||'',p.oraO||'',p.ore||'','"'+p.lavoro.replace(/"/g,'""')+'"']));
-  dl(new Blob(['\uFEFF'+rows.map(r=>r.join(';')).join('\n')],{type:'text/csv;charset=utf-8;'}),`presenze_${today()}.csv`);
-  toast('✓ CSV scaricato',true);
+  S.presenze.forEach(p=>rows.push([
+    p.tirocinante, p.data, p.oraI||'', p.oraO||'', p.ore||'',
+    '"'+p.lavoro.replace(/"/g,'""')+'"'
+  ]));
+  dl(new Blob(['\uFEFF'+rows.map(r=>r.join(';')).join('\n')],{type:'text/csv;charset=utf-8;'}),
+    `presenze_${today()}.csv`);
+  toast('✓ CSV scaricato','ok');
 }
 function expJSON(){
   dl(new Blob([JSON.stringify(S,null,2)],{type:'application/json'}),`backup_${today()}.json`);
-  toast('✓ Backup scaricato',true);
+  toast('✓ Backup scaricato','ok');
 }
 function dl(blob,name){
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; a.click(); URL.revokeObjectURL(a.href);
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download=name; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 function resetAll(){
   if(!confirm('Cancellare TUTTI i dati? Irreversibile.')) return;
-  S={tirocinanti:[],presenze:[]}; save();
-  S.tirocinanti=['Mario Rossi','Giulia Bianchi']; save();
-  selTiro=null; renderChips(); renderFTiro();
+  S={tirocinanti:['Mario Rossi','Giulia Bianchi'],presenze:[],cfg:{email:'',wa:'',nome:''}};
+  save(); selTiro=null; renderChips(); updateFTiro();
   toast('Dati cancellati');
 }
 
-// ── HELPERS ──
-function today(){ return new Date().toISOString().split('T')[0]; }
-function fmtDate(d){
-  if(!d) return '';
-  const [y,m,day]=d.split('-');
-  return parseInt(day)+' '+['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'][parseInt(m)-1]+' '+y;
+// ══════════════════════════════
+//  MODALE CONDIVISIONE
+// ══════════════════════════════
+function apriShare(id){
+  sharePID = id;
+  const p = S.presenze.find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('shareSubtitle').textContent =
+    `${p.tirocinante} — ${fmtDate(p.data)}`;
+  document.getElementById('ovShare').classList.add('on');
 }
-let tt;
-function toast(msg,ok=false){
-  const el=document.getElementById('toast');
-  el.textContent=msg; el.className='on'+(ok?' ok':'');
-  clearTimeout(tt); tt=setTimeout(()=>el.className='',2600);
+
+function closeOv(id, e){
+  if(!e || e.target===document.getElementById(id))
+    document.getElementById(id).classList.remove('on');
 }
 
 // ── EMAIL ──
-let mailPID = null; // presenza id corrente
-
-function apriModal(id){
-  mailPID = id;
-  const p = S.presenze.find(x=>x.id===id);
+function doEmail(){
+  const p = S.presenze.find(x=>x.id===sharePID);
   if(!p) return;
-
-  // Componi testo anteprima
-  const testo = buildEmailBody(p);
-  document.getElementById('mailPreview').textContent = testo;
-
-  // Precompila destinatario da impostazioni
-  const dest = S.mailDest || '';
-  document.getElementById('mailDest').value = dest;
-
-  // Oggetto predefinito
-  document.getElementById('mailObj').value =
-    `Presenza ${p.tirocinante} – ${fmtDate(p.data)}`;
-
-  document.getElementById('mailOverlay').classList.add('on');
+  const dest = S.cfg.email || '';
+  const sogg = encodeURIComponent(`Presenza ${p.tirocinante} – ${fmtDate(p.data)}`);
+  const body = encodeURIComponent(buildTesto(p));
+  window.location.href = `mailto:${dest}?subject=${sogg}&body=${body}`;
+  closeOv('ovShare');
+  toast('✓ Client email aperto','ok');
 }
 
-function closeModal(e){
-  if(e.target === document.getElementById('mailOverlay'))
-    document.getElementById('mailOverlay').classList.remove('on');
+// ── WHATSAPP ──
+function doWhatsApp(){
+  const p = S.presenze.find(x=>x.id===sharePID);
+  if(!p) return;
+  const num = (S.cfg.wa||'').replace(/\s+/g,'');
+  const testo = encodeURIComponent(buildTesto(p));
+  const url = num
+    ? `https://wa.me/${num.replace(/\+/,'')}?text=${testo}`
+    : `https://wa.me/?text=${testo}`;
+  window.open(url, '_blank');
+  closeOv('ovShare');
+  toast('✓ WhatsApp aperto','ok');
 }
 
-function buildEmailBody(p){
+// ── PDF singola presenza ──
+function doPDF(){
+  const p = S.presenze.find(x=>x.id===sharePID);
+  if(!p) return;
+  generaPDF([p], `Presenza_${p.tirocinante.replace(/\s+/g,'_')}_${p.data}`);
+  closeOv('ovShare');
+}
+
+// ── PDF registro completo ──
+function pdfRegistro(){
+  const ft = document.getElementById('fTiro').value;
+  const fm = document.getElementById('fMese').value;
+  let pp = S.presenze;
+  if(ft) pp = pp.filter(p=>p.tirocinante===ft);
+  if(fm) pp = pp.filter(p=>p.data.startsWith(fm));
+  if(!pp.length){ toast('Nessuna presenza da esportare','warn'); return; }
+  generaPDF(pp, `Registro_presenze_${today()}`);
+}
+
+// ══════════════════════════════
+//  GENERA PDF  (jsPDF)
+// ══════════════════════════════
+function generaPDF(presenze, filename){
+  const { jsPDF } = window.jspdf;
+  if(!jsPDF){ toast('jsPDF non disponibile','warn'); return; }
+
+  const doc = new jsPDF({ unit:'mm', format:'a4' });
+  const W=210, M=18, cW=W-M*2;
+  let y = M;
+
+  // ── Intestazione ──
+  doc.setFillColor(26,26,46);
+  doc.rect(0,0,W,38,'F');
+  doc.setTextColor(232,197,71);
+  doc.setFontSize(20);
+  doc.setFont('helvetica','bold');
+  doc.text('REGISTRO PRESENZE TIROCINANTI', M, 16);
+  doc.setFontSize(9);
+  doc.setTextColor(200,200,220);
+  const negozio = S.cfg.nome || 'Negozio';
+  doc.text(`${negozio}   •   Generato il ${fmtDate(today())}`, M, 26);
+  doc.setTextColor(150,150,170);
+  doc.text(`${presenze.length} presenza${presenze.length!==1?'e':''}`, M, 33);
+  y = 48;
+
+  presenze.forEach((p, idx) => {
+    // Stima altezza necessaria
+    const lavLines = doc.splitTextToSize(p.lavoro, cW-10);
+    const cardH = 10 + 7 + (p.oraI?7:0) + (p.ore?7:0) + lavLines.length*5 + 10;
+    if(y + cardH > 282){ doc.addPage(); y = M; }
+
+    // Card sfondo
+    doc.setFillColor(26,26,46);
+    doc.setDrawColor(50,50,80);
+    doc.setLineWidth(0.3);
+    doc.roundedRect(M, y, cW, cardH, 4, 4, 'FD');
+
+    // Numero presenza
+    doc.setFillColor(232,197,71);
+    doc.circle(M+8, y+7, 4.5, 'F');
+    doc.setTextColor(26,26,46);
+    doc.setFontSize(8);
+    doc.setFont('helvetica','bold');
+    doc.text(String(idx+1), M+8, y+9.5, {align:'center'});
+
+    // Nome tirocinante
+    doc.setTextColor(232,197,71);
+    doc.setFontSize(12);
+    doc.setFont('helvetica','bold');
+    doc.text(p.tirocinante, M+16, y+9);
+
+    let ry = y + 18;
+
+    // Pills info
+    doc.setFontSize(8);
+    doc.setFont('helvetica','normal');
+
+    // Data
+    doc.setFillColor(40,40,70);
+    doc.roundedRect(M+5, ry-4.5, 40, 6.5, 2, 2,'F');
+    doc.setTextColor(232,197,71);
+    doc.text('📅 '+fmtDate(p.data), M+7, ry);
+    let px = M+5+42;
+
+    if(p.oraI){
+      const label = '🕐 '+p.oraI+(p.oraO?' – '+p.oraO:'');
+      doc.setFillColor(20,60,60);
+      doc.roundedRect(px, ry-4.5, 38, 6.5, 2,2,'F');
+      doc.setTextColor(78,205,196);
+      doc.text(label, px+2, ry);
+      px += 40;
+    }
+    if(p.ore){
+      const label = '⏱ '+p.ore.toFixed(1)+'h';
+      doc.setFillColor(50,35,20);
+      doc.roundedRect(px, ry-4.5, 22, 6.5, 2,2,'F');
+      doc.setTextColor(244,162,97);
+      doc.text(label, px+2, ry);
+    }
+    ry += 10;
+
+    // Lavoro svolto
+    doc.setTextColor(150,150,180);
+    doc.setFontSize(7.5);
+    doc.setFont('helvetica','bold');
+    doc.text('LAVORO SVOLTO', M+5, ry);
+    ry += 5;
+    doc.setTextColor(210,210,230);
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(8.5);
+    lavLines.forEach(line => {
+      doc.text(line, M+5, ry);
+      ry += 5;
+    });
+
+    y += cardH + 6;
+  });
+
+  // Footer
+  const pages = doc.internal.getNumberOfPages();
+  for(let i=1;i<=pages;i++){
+    doc.setPage(i);
+    doc.setFillColor(20,20,35);
+    doc.rect(0,287,W,10,'F');
+    doc.setTextColor(100,100,130);
+    doc.setFontSize(7);
+    doc.setFont('helvetica','normal');
+    doc.text(`${negozio} — Registro Presenze Tirocinanti`, M, 293);
+    doc.text(`Pag. ${i}/${pages}`, W-M, 293, {align:'right'});
+  }
+
+  doc.save(filename+'.pdf');
+  toast('✓ PDF generato','ok');
+}
+
+// ══════════════════════════════
+//  TESTO PRESENZA (email / WA)
+// ══════════════════════════════
+function buildTesto(p){
+  const negozio = S.cfg.nome || 'Negozio';
   const righe = [
-    '── REGISTRO PRESENZA ──',
-    '',
-    `Tirocinante : ${p.tirocinante}`,
-    `Data        : ${fmtDate(p.data)}`,
+    '📋 PRESENZA TIROCINANTE',
+    '─────────────────────',
+    `👤 ${p.tirocinante}`,
+    `📅 ${fmtDate(p.data)}`,
   ];
-  if(p.oraI) righe.push(`Orario      : ${p.oraI}${p.oraO ? ' – '+p.oraO : ''}`);
-  if(p.ore)  righe.push(`Ore svolte  : ${p.ore.toFixed(1)} h`);
+  if(p.oraI) righe.push(`🕐 Orario: ${p.oraI}${p.oraO?' – '+p.oraO:''}`);
+  if(p.ore)  righe.push(`⏱ Ore: ${p.ore.toFixed(1)}h`);
   righe.push('');
-  righe.push('Lavoro svolto:');
+  righe.push('📝 Lavoro svolto:');
   righe.push(p.lavoro);
   righe.push('');
-  const nome = S.mailNome || 'Negozio';
-  righe.push(`──────────────────────`);
-  righe.push(`Inviato da: ${nome}`);
+  righe.push('─────────────────────');
+  righe.push(`🏪 ${negozio}`);
   righe.push(`Data invio: ${fmtDate(today())}`);
   return righe.join('\n');
 }
 
-function inviaEmail(){
-  const dest = document.getElementById('mailDest').value.trim();
-  if(!dest) { toast('Inserisci un indirizzo email'); return; }
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dest)) { toast('Email non valida'); return; }
+// ══════════════════════════════
+//  HELPERS
+// ══════════════════════════════
+function today(){ return new Date().toISOString().split('T')[0]; }
+function fmtDate(d){
+  if(!d) return '';
+  const [y,m,day]=d.split('-');
+  return +day+' '+['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'][+m-1]+' '+y;
+}
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-  const obj  = encodeURIComponent(document.getElementById('mailObj').value.trim() || 'Presenza tirocinante');
-  const body = encodeURIComponent(buildEmailBody(S.presenze.find(x=>x.id===mailPID)));
-
-  // Salva destinatario come default
-  S.mailDest = document.getElementById('mailDest').value.trim();
-  save();
-
-  window.location.href = `mailto:${dest}?subject=${obj}&body=${body}`;
-  document.getElementById('mailOverlay').classList.remove('on');
-  toast('✓ Client email aperto', true);
+let _tt;
+function toast(msg, type=''){
+  const el=document.getElementById('toast');
+  el.textContent=msg;
+  el.className='on'+(type?' '+type:'');
+  clearTimeout(_tt);
+  _tt=setTimeout(()=>el.className='',2800);
 }
 
-function saveMailSettings(){
-  S.mailDest = document.getElementById('setMailDest')?.value.trim() || '';
-  S.mailNome = document.getElementById('setMailNome')?.value.trim() || '';
-  save();
-  aggiornaBtn();
-}
-
-// ── SERVICE WORKER (inline blob) ──
+// ══════════════════════════════
+//  SERVICE WORKER
+// ══════════════════════════════
 if('serviceWorker' in navigator){
-  const swCode=`
-const C='pres-v2';
-const A=['./'];
-self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll(A)).then(()=>self.skipWaiting())));
+  const sw=`const C='pres-v3';
+self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.add('./index.html')).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>caches.match('./')))));
-`;
-  const swBlob=new Blob([swCode],{type:'application/javascript'});
-  const swURL=URL.createObjectURL(swBlob);
-  navigator.serviceWorker.register(swURL,{scope:'./'  }).catch(()=>
-    // fallback: try external sw.js
-    navigator.serviceWorker.register('./sw.js').catch(()=>{})
-  );
+self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>caches.match('./index.html')))));`;
+  const blob=new Blob([sw],{type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob),{scope:'./'})
+    .catch(()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 }
 </script>
 </body>
