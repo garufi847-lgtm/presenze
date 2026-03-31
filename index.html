@@ -142,6 +142,34 @@
     .nicon{font-size:1.25rem;}
     .nlabel{font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-family:'DM Sans',sans-serif;}
 
+    /* SEND EMAIL BUTTON */
+    .btn-mail{background:rgba(232,197,71,.13);color:var(--accent);padding:6px 11px;font-size:.78rem;
+      border-radius:8px;border:1px solid rgba(232,197,71,.25);cursor:pointer;transition:all .2s;white-space:nowrap;}
+    .btn-mail:hover{background:rgba(232,197,71,.26);}
+    .eactions{display:flex;flex-direction:column;gap:5px;align-items:flex-end;}
+
+    /* MODAL */
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);
+      z-index:500;display:flex;align-items:flex-end;justify-content:center;
+      opacity:0;pointer-events:none;transition:opacity .25s;}
+    .overlay.on{opacity:1;pointer-events:all;}
+    .modal{background:var(--surface);border:1px solid var(--border);border-radius:24px 24px 0 0;
+      padding:28px 22px max(36px,env(safe-area-inset-bottom));width:100%;max-width:520px;
+      transform:translateY(40px);transition:transform .3s ease;}
+    .overlay.on .modal{transform:translateY(0);}
+    .mtitle{font-family:'DM Serif Display',serif;font-size:1.15rem;margin-bottom:4px;}
+    .msub{font-size:.8rem;color:var(--muted);margin-bottom:18px;}
+    .mpreview{background:var(--surface2);border:1px solid var(--border);border-radius:12px;
+      padding:14px;font-size:.78rem;line-height:1.75;color:var(--text);margin-bottom:16px;
+      max-height:160px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;font-family:monospace;}
+    .mrow{display:flex;gap:10px;align-items:center;margin-bottom:12px;}
+    .mrow label{min-width:86px;font-size:.7rem;}
+    .mrow input{flex:1;}
+    .mbtns{display:flex;gap:10px;margin-top:4px;}
+    .btn-cancel{background:var(--surface2);color:var(--muted);flex:1;border:none;}
+    .btn-send{background:var(--accent);color:#1a1a2e;flex:2;font-weight:700;border:none;}
+    .btn-send:hover{background:#f0d060;transform:translateY(-1px);}
+
     /* TOAST */
     #toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(60px);
       background:var(--surface2);border:1px solid var(--border);color:var(--text);
@@ -200,6 +228,7 @@
           <textarea id="iLav" placeholder="Descrivi le attività svolte..."></textarea></div>
       </div>
       <button class="btn btn-p" onclick="salva()">✓ Salva presenza</button>
+      <button class="btn" id="btnSalvaInvia" style="background:rgba(232,197,71,.15);color:var(--accent);border:1px solid rgba(232,197,71,.3);width:100%;margin-top:8px;display:none;" onclick="salvaEInvia()">✉️ Salva e invia per email</button>
     </div>
   </div>
 
@@ -237,13 +266,45 @@
       </div>
     </div>
     <div class="card">
-      <div class="sh">Dati</div>
+      <div class="sh">📧 Email destinatario</div>
+      <p style="font-size:.78rem;color:var(--muted);margin-bottom:12px;">Indirizzo a cui inviare le presenze per impostazione predefinita</p>
+      <div class="fg" style="margin-bottom:10px;">
+        <label>Email destinatario</label>
+        <input type="email" id="setMailDest" placeholder="es. titolare@negozio.it" oninput="saveMailSettings()" />
+      </div>
+      <div class="fg">
+        <label>Nome mittente (facoltativo)</label>
+        <input type="text" id="setMailNome" placeholder="es. Negozio XYZ" oninput="saveMailSettings()" />
+      </div>
+    </div>
+    <div class="card">
       <button class="btn" style="background:var(--surface2);color:var(--text);width:100%;margin-bottom:10px;" onclick="expJSON()">💾 Backup JSON</button>
       <button class="btn" style="background:rgba(255,107,107,.12);color:var(--err);width:100%;border:1px solid rgba(255,107,107,.2);" onclick="resetAll()">🗑️ Cancella tutti i dati</button>
     </div>
     <p style="text-align:center;color:var(--muted);font-size:.72rem;margin-top:14px;">Dati salvati localmente sul dispositivo</p>
   </div>
 </main>
+
+<!-- EMAIL MODAL -->
+<div class="overlay" id="mailOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="mtitle">📧 Invia presenza via email</div>
+    <div class="msub">Il tuo client email si aprirà con il messaggio precompilato</div>
+    <div class="mpreview" id="mailPreview"></div>
+    <div class="mrow">
+      <label>Email destinatario</label>
+      <input type="email" id="mailDest" placeholder="es. titolare@negozio.it" />
+    </div>
+    <div class="mrow">
+      <label>Oggetto</label>
+      <input type="text" id="mailObj" placeholder="Oggetto email..." />
+    </div>
+    <div class="mbtns">
+      <button class="btn btn-cancel" onclick="document.getElementById('mailOverlay').classList.remove('on')">✕ Annulla</button>
+      <button class="btn btn-send" onclick="inviaEmail()">✉️ Apri email</button>
+    </div>
+  </div>
+</div>
 
 <nav>
   <button class="ni on" data-page="nuovo"><span class="nicon">➕</span><span class="nlabel">Nuovo</span></button>
@@ -264,7 +325,7 @@ function save(){ try{localStorage.setItem('pres_v2',JSON.stringify(S));}catch(e)
 document.getElementById('hdate').textContent = fmtDate(today());
 document.getElementById('iData').value = today();
 if(!S.tirocinanti.length) S.tirocinanti=['Mario Rossi','Giulia Bianchi'], save();
-renderChips(); renderFTiro();
+renderChips(); renderFTiro(); aggiornaBtn();
 
 // NAV
 document.querySelectorAll('[data-page]').forEach(b => b.addEventListener('click', () => {
@@ -308,6 +369,30 @@ function salva(){
   document.getElementById('iIn').value='';
   document.getElementById('iOut').value='';
   toast('✓ Presenza salvata',true);
+  aggiornaBtn();
+}
+
+function salvaEInvia(){
+  if(!selTiro) return toast('Seleziona un tirocinante');
+  const data=document.getElementById('iData').value;
+  if(!data) return toast('Inserisci la data');
+  const lav=document.getElementById('iLav').value.trim();
+  if(!lav) return toast('Descrivi il lavoro svolto');
+  const i=document.getElementById('iIn').value;
+  const o=document.getElementById('iOut').value;
+  let ore=null;
+  if(i&&o){ const d=((+o.split(':')[0]*60+ +o.split(':')[1])-(+i.split(':')[0]*60+ +i.split(':')[1]))/60; if(d>0) ore=d; }
+  const p={id:Date.now(),tirocinante:selTiro,data,oraI:i||null,oraO:o||null,ore,lavoro:lav};
+  S.presenze.unshift(p); save();
+  document.getElementById('iLav').value='';
+  document.getElementById('iIn').value='';
+  document.getElementById('iOut').value='';
+  apriModal(p.id);
+}
+
+function aggiornaBtn(){
+  const btn=document.getElementById('btnSalvaInvia');
+  if(btn) btn.style.display = S.mailDest ? 'flex' : 'none';
 }
 
 // ── REGISTRO ──
@@ -335,7 +420,10 @@ function renderReg(){
         </div>
         <div class="elaboro">${p.lavoro}</div>
       </div>
-      <div><button class="btn-x" onclick="del(${p.id})">✕</button></div>
+      <div class="eactions">
+        <button class="btn-x" onclick="del(${p.id})">✕</button>
+        <button class="btn-mail" onclick="apriModal(${p.id})">✉️</button>
+      </div>
     </div>`).join('');
 }
 function del(id){
@@ -377,6 +465,11 @@ function renderSettings(){
   document.getElementById('tsettings').innerHTML=S.tirocinanti.map((t,i)=>`
     <div class="trow2"><span>${t}</span>
     <button class="btn-x" onclick="rmTiro(${i})">✕ Rimuovi</button></div>`).join('');
+  // Popola campi email
+  const md = document.getElementById('setMailDest');
+  const mn = document.getElementById('setMailNome');
+  if(md) md.value = S.mailDest || '';
+  if(mn) mn.value = S.mailNome || '';
 }
 function addTiro(){
   const n=document.getElementById('newName').value.trim();
@@ -426,6 +519,78 @@ function toast(msg,ok=false){
   const el=document.getElementById('toast');
   el.textContent=msg; el.className='on'+(ok?' ok':'');
   clearTimeout(tt); tt=setTimeout(()=>el.className='',2600);
+}
+
+// ── EMAIL ──
+let mailPID = null; // presenza id corrente
+
+function apriModal(id){
+  mailPID = id;
+  const p = S.presenze.find(x=>x.id===id);
+  if(!p) return;
+
+  // Componi testo anteprima
+  const testo = buildEmailBody(p);
+  document.getElementById('mailPreview').textContent = testo;
+
+  // Precompila destinatario da impostazioni
+  const dest = S.mailDest || '';
+  document.getElementById('mailDest').value = dest;
+
+  // Oggetto predefinito
+  document.getElementById('mailObj').value =
+    `Presenza ${p.tirocinante} – ${fmtDate(p.data)}`;
+
+  document.getElementById('mailOverlay').classList.add('on');
+}
+
+function closeModal(e){
+  if(e.target === document.getElementById('mailOverlay'))
+    document.getElementById('mailOverlay').classList.remove('on');
+}
+
+function buildEmailBody(p){
+  const righe = [
+    '── REGISTRO PRESENZA ──',
+    '',
+    `Tirocinante : ${p.tirocinante}`,
+    `Data        : ${fmtDate(p.data)}`,
+  ];
+  if(p.oraI) righe.push(`Orario      : ${p.oraI}${p.oraO ? ' – '+p.oraO : ''}`);
+  if(p.ore)  righe.push(`Ore svolte  : ${p.ore.toFixed(1)} h`);
+  righe.push('');
+  righe.push('Lavoro svolto:');
+  righe.push(p.lavoro);
+  righe.push('');
+  const nome = S.mailNome || 'Negozio';
+  righe.push(`──────────────────────`);
+  righe.push(`Inviato da: ${nome}`);
+  righe.push(`Data invio: ${fmtDate(today())}`);
+  return righe.join('\n');
+}
+
+function inviaEmail(){
+  const dest = document.getElementById('mailDest').value.trim();
+  if(!dest) { toast('Inserisci un indirizzo email'); return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dest)) { toast('Email non valida'); return; }
+
+  const obj  = encodeURIComponent(document.getElementById('mailObj').value.trim() || 'Presenza tirocinante');
+  const body = encodeURIComponent(buildEmailBody(S.presenze.find(x=>x.id===mailPID)));
+
+  // Salva destinatario come default
+  S.mailDest = document.getElementById('mailDest').value.trim();
+  save();
+
+  window.location.href = `mailto:${dest}?subject=${obj}&body=${body}`;
+  document.getElementById('mailOverlay').classList.remove('on');
+  toast('✓ Client email aperto', true);
+}
+
+function saveMailSettings(){
+  S.mailDest = document.getElementById('setMailDest')?.value.trim() || '';
+  S.mailNome = document.getElementById('setMailNome')?.value.trim() || '';
+  save();
+  aggiornaBtn();
 }
 
 // ── SERVICE WORKER (inline blob) ──
